@@ -36,7 +36,7 @@
 #import "templates/page.typ": project
 #let book-page = project
 
-#build-meta(dest-dir: "../../notes")
+#build-meta(dest-dir: "book/")
 
 #get-book-meta()
 
