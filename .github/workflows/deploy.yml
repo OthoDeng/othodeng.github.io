@@ -41,14 +41,23 @@ jobs:
       # 安装缓存，加快第二次之后的编译速度
       - name: Setup Rust Cache
         uses: Swatinem/rust-cache@v2
+      
+      
+      - name: Cache Shiroa executable
+        id: cache-shiroa
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo/bin/shiroa
+          key: ${{ runner.os }}-shiroa-bin-v1  
 
-      - name: Install Shiroa
+      - name: Install Shiroa 
+        if: steps.cache-shiroa.outputs.cache-hit != 'true'
         run: cargo install --git https://github.com/Myriad-Dreamin/shiroa.git --tag v0.2.0 --locked shiroa
 
       # 运行编译（请根据你本地实际的输出文件夹进行修改，假设输出在 book/ 文件夹）
       # 如果你的命令有加 --font-path 等参数，请照搬你本地的命令
       - name: Build Notes
-        run: shiroa build 
+        run: shiroa build /notes/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

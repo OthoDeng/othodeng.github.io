@@ -8,7 +8,7 @@
   entity: none,
   location: none,
   ) = {
-  heading(level:3, name)
+  heading(level:2, name)
   text(font: "New Computer Modern", style: "italic", date,)
   v(1pt)
   if entity != none {
