@@ -42,9 +42,8 @@ jobs:
       - name: Setup Rust Cache
         uses: Swatinem/rust-cache@v2
 
-      # 【关键修复】通过 Git 仓库直接安装 shiroa，而不是通过 crates.io
       - name: Install Shiroa
-        run: cargo install --git https://github.com/Myriad-Dreamin/shiroa.git shiroa
+        run: cargo install --git https://github.com/Myriad-Dreamin/shiroa.git --tag v0.2.0 --locked shiroa
 
       # 运行编译（请根据你本地实际的输出文件夹进行修改，假设输出在 book/ 文件夹）
       # 如果你的命令有加 --font-path 等参数，请照搬你本地的命令
