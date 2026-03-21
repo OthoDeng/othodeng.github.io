@@ -1,42 +1,67 @@
-name: Build and Deploy Shiroa Notes
+name: Deploy Shiroa Notes to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  
+    branches: ['main'] # 当推送到 main 分支时触发
+  workflow_dispatch:   # 允许你在 GitHub 网页上手动点击运行
+
+# 设置 GitHub Pages 部署所需的权限
+permissions:
+  pages: write
+  id-token: write
+  contents: read
+
+# 防止同时进行多个部署导致冲突
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup Rust
-        uses: actions-rs/toolchain@v1
         with:
-          profile: minimal
-          toolchain: stable
-          override: true
+          submodules: recursive # 如果你有用到子模块，保持开启
 
-      - name: Cache cargo registry
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: Download font assets
+        run: |
+          mkdir -p assets/fonts
+          curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.1.0/charter-font-assets.tar.gz | tar -xvz -C assets/fonts/
+          curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.1.5/source-han-serif-font-assets.tar.gz | tar -xvz -C assets/fonts/
 
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      # 安装缓存，加快第二次之后的编译速度
+      - name: Setup Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      # 【关键修复】通过 Git 仓库直接安装 shiroa，而不是通过 crates.io
       - name: Install Shiroa
-        run: cargo install shiroa
+        run: cargo install --git https://github.com/Myriad-Dreamin/shiroa.git shiroa
 
+      # 运行编译（请根据你本地实际的输出文件夹进行修改，假设输出在 book/ 文件夹）
+      # 如果你的命令有加 --font-path 等参数，请照搬你本地的命令
       - name: Build Notes
-        run: shiroa build
+        run: shiroa build 
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 打包编译好的静态文件
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book  
-          publish_branch: gh-pages 
+          # 【注意】这里填入 shiroa 编译后生成的文件夹名字！通常是 'book' 或 'dist'
+          path: './book' 
+
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
