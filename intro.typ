@@ -22,10 +22,20 @@
 = About this note
 This note was taken by #link("https://github.com/OthoDeng/notes")[Otto Deng]. He takes notes according to the lectures he attends. If there is any mistake, don't hesitate to let me know! Check out for my GitHub for more projects: #link("https://github.com/OthoDeng")[Otto Deng's GitHub].
 
-= About Otto
-Hello! I am *Otto (Kaihuai) Deng*, an undergraduate student majoring in Atmospheric Science, Hydrometeorology Division. My academic interest lies in the Earth's climate system, with a primary focus on *extreme weather events, flash droughts, and land–atmosphere coupling*. I am deeply passionate about understanding the complex mechanisms behind these phenomena, leveraging advanced computational tools, remote sensing products, and WRF modeling to quantify the impacts of anthropogenic climate change on global water resources. For more information of my study, see also #link("https://t.me/AdolescentDelusions")[学术生活 Academic Life]: a Telegram channel where I share my thoughts on academia, research, and life as a student.
 
-Throughout my undergraduate studies, I have actively engaged in comprehensive, independent research. My dedication to research has resulted in scientific publications, including an accepted paper on contrasting Sea Surface Temperature trends and another currently under review in the _Journal of Hydrology_. Complementing my academic work, I have gained practical forecasting and fieldwork experience at the _Guangdong Provincial Meteorological Observation_, and I am honored to be a recipient of the _Mitacs Globalink Scholarship_ for an upcoming research internship at the _University of Prince Edward Island in Canada_. Equipped with strong technical skills in Python, high-performance computing, and integrated hydrologic modeling, I am committed to advancing our understanding of the broader hydrologic cycle and climate resilience.
+
+
+= About Me
+Hello! 
+I am *Otto (Kaihuai) Deng*, an undergraduate student majoring in Atmospheric Science, Hydrometeorology Division, _Nanjing University of Information Science and Technology_(NUIST). 
+
+My academic interest lies in *extreme weather events, flash droughts, land–atmosphere coupling, WRF modeling*. I am deeply passionate about understanding the complex mechanisms behind these phenomena, leveraging advanced computational tools, remote sensing products, and modeling to quantify the impacts of anthropogenic climate change on global water resources. 
+
+For more information of my study, see also #link("https://t.me/AdolescentDelusions")[学术生活 Academic Life]: a Telegram channel where I share my thoughts on academia, research, and life as a student.
+
+Throughout my undergraduate studies, I have actively engaged in comprehensive, independent research. My dedication to research has resulted in scientific publications, including an accepted paper on contrasting Sea Surface Temperature trend analysis and another currently under review in the _Journal of Hydrology_.
+
+Complementing my academic work, I have gained practical forecasting and fieldwork experience at the _Guangdong Provincial Meteorological Observation_, and I am honored to be sponsored by the _Chinese Government Scholarship_ & _Mitacs Globalink Scholarship_ for an upcoming 2026 research internship at the _University of Prince Edward Island_ in Canada.
 
 = Interests
 I love traveling, hiking, and exploring new places.
@@ -34,7 +44,7 @@ I enjoy photography, check out my Instagram for some of my works(also my daily r
 
 Strong cooffee lover, sometimes tea as well. 
 
-I love languages learning, currently I can speak: eng, chi[cmn, yue], fra. But I actually don't know too much jpn.
+I love languages learning, currently I can speak: `eng, chi[cmn, yue], fra`. But I actually don't know too much `jpn`.
 
 I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
 
@@ -88,7 +98,7 @@ I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
 
 
 
-= Available Links
+= Contact
 There are some ways to reach me:
 - #link("https://OttoQwQ.me")[Blog Posts]
 
