@@ -3,7 +3,7 @@
 #show: book-page.with(title: "GCA2")
 
 #show: dvdtyp.with(
-  title: "GEOS-Chem model tutorials",
+  title: "The 2nd GEOS-Chem Asia Meeting (GCA2) Quick notes",
   author: "Otto Deng"
 )
 #outline()
