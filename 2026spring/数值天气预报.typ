@@ -136,3 +136,83 @@ $
     ((partial F)/(partial s))_z = 
   )
 $
+
+= 数值计算方法
+
+== 时间积分以及空间积分
+$
+  (dif q)/(dif t) = f[q(t),t],  (dif q)/(dif t) = - kappa q a sin(omega t)
+$
+$
+  (q^(n+1) - q^n)/((1+m)delta t) = beta f^(n+1) + a_n f^(n) + a_(n-1) f^(n-1) + ... + a_0 f^(0)
+$
+
+
+- $beta = 0$ 全隐格式，根据此时状态解出下一时刻状态。
+
+$
+  m =1, I = 0\
+1/(2 delta t)
+$
+
+- $beta != 0$ 显式格式，同时解出此时状态和下一时刻状态。
+Backward Scheme
+
+
+Milne Scheme
+
+1. 时间积分方式
+
+$
+  (dif u)/(dif t) =F
+$
+
+- 如果$(partial F)/(partial t)$ 为虚数，大气运动中常见的震动类问题。
+
+假设$u = A(t) e^(-I k x)$，有：
+#theorem[一维平流方程][
+  $
+&(partial u)/(partial t) + c (partial u)/(partial x) = 0\
+ ==>&\
+    &(dif A)/(dif t) = I k c A = I omega A, omega = k c
+  $
+]
+
+如果$(partial F)/(partial t)$ 为实数，
+#definition[
+  1. $u^(n+1) = u^n + Delta t F^(n)$ 欧拉格式,$G>= 1$
+  2. $u^(n+1) = u^n + Delta t F^(n+1)$ 后差格式 $G<= 1$
+  3. $u^(n+1) = u^n +  Delta t (1/2 F^(n)+ 1/2 F^(n+1))$ 梯形格式 $G= 1$，绝对不稳定格式
+]
+化简为普遍形式：$u^(n+1) = u^n +  Delta t (A F^(n)+ B F^(n+1)), A+B = 1$
+其中$F = I omega u$,进而有$F^n = I omega u^n$
+
+增幅因子$G$：
+$
+  G = u^(n+1)/u^n  = (1+ A I  omega delta t)/(1 -B I omega delta t)
+$
+
+
+- 欧拉—后差格式（显式格式）：
+$
+  cases(
+    u^(*,n+1) = u^n + Delta t F^n,
+    u^(n+1) = u^n + Delta t F^(*, n+1)
+  )
+$
+条件稳定。
+- 修恩格式（隐式格式）：
+$  cases(
+    u^(*,n+1) = u^n + Delta t F^n,
+    u^(n+1) = u^n + (Delta t)/2 (F^n + F^(*, n+1))
+) 
+$
+
+
+2. 时间的截断误差
+以惯性震荡为例
+$
+  (dif u)/(dif t) - f v = 0, (dif v)/(dif t) + f u = 0
+$
+
+令$W = u + i v, (dif W)/(dif t) = (dif u)/(dif t) + i (dif v)/(dif t) = - i f W$
