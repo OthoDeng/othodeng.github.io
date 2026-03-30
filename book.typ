@@ -30,10 +30,14 @@
     - #chapter("2025spring/现代气候学.typ")[Modern Climatology]
     - #chapter("2025spring/计算方法.typ")[Computational Methods]
 
+    = 2026 Spring
+    - #chapter("2026spring/数值天气预报.typ")[Numerical Weather Prediction]
+
     = Research
     - #chapter("2024spring/RemoteSensing.typ")[Remote Sensing Quick Notes]
     - #chapter("2024spring/SouthernOcean.typ")[A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean]
     - #chapter("2025spring/GCA2.typ")[The 2nd GEOS-Chem Asia Meeting (GCA2)]
+
 
   ],
 )

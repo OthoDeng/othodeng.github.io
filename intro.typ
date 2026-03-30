@@ -37,6 +37,11 @@ Throughout my undergraduate studies, I have actively engaged in comprehensive, i
 
 Complementing my academic work, I have gained practical forecasting and fieldwork experience at the _Guangdong Provincial Meteorological Observation_, and I am honored to be sponsored by the _Chinese Government Scholarship_ & _Mitacs Globalink Scholarship_ for an upcoming 2026 research internship at the _University of Prince Edward Island_ in Canada.
 
+- #link("https://OttoQwQ.me")[Blog Posts]
+- #link("https://t.me/Otttos_daily")[Telegram Channel] for my daily life and thoughts.
+- Email: #link("mailto:ottodeng9@gmail.com")[ottodeng9\[at\]gmail.com]
+
+
 = Interests
 I love traveling, hiking, and exploring new places.
 
@@ -96,18 +101,6 @@ I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
   date: "2025.07 ~ 2025.08",
 )
 
-
-
-= Contact
-There are some ways to reach me:
-- #link("https://OttoQwQ.me")[Blog Posts]
-
-- #link("mailto:ottodeng9@gmail.com")[OttoDeng9\[at\]gmail.com]
-
-- #link("https://t.me/Otttos_daily")[Telegram]
-
-
-- #link("https://t.me/AdolescentDelusions")[学术生活(Academic Life)]
 
 
 
