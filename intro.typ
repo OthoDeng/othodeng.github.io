@@ -33,7 +33,21 @@ My academic interest lies in *extreme weather events, flash droughts, land–atm
 
 For more information of my study, see also #link("https://t.me/AdolescentDelusions")[学术生活 Academic Life]: a Telegram channel where I share my thoughts on academia, research, and life as a student.
 
-Throughout my undergraduate studies, I have actively engaged in comprehensive, independent research. My dedication to research has resulted in scientific publications, including an accepted paper on contrasting Sea Surface Temperature trend analysis and another currently under review in the _Journal of Hydrology_.
+Throughout my undergraduate studies, I have actively engaged in comprehensive, independent research. Some of my work has been published in peer-reviewed journals, and I have several manuscripts currently under review or in preparation:
+
+
+#rect(
+  radius: 5pt,
+  fill: rgb("#E3F2FD").lighten(50%),
+)[
+  #set text(font: "Times New Roman")
+  
+  *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). Global unequal exposure to intensifying hydrological droughts. _Journal of hydrology_. (Major Revision)
+
+  *Deng, K.*, Huang, Z.\*, (2026). Intensifying global 3D terrestrial water storage drought under climate change. (To be submit)
+
+  *Deng, K.\* * and Wang, J. (2024). A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean. _Science and Technology of Engineering, Chemistry, and Environmental Protection_. #link("../2024spring/SouthernOcean.html")[doi.org/10.61173/xnag2k18]
+]
 
 Complementing my academic work, I have gained practical forecasting and fieldwork experience at the _Guangdong Provincial Meteorological Observation_, and I am honored to be sponsored by the _Chinese Government Scholarship_ & _Mitacs Globalink Scholarship_ for an upcoming 2026 research internship at the _University of Prince Edward Island_ in Canada.
 
