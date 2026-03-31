@@ -57,7 +57,7 @@ jobs:
       # 运行编译（请根据你本地实际的输出文件夹进行修改，假设输出在 book/ 文件夹）
       # 如果你的命令有加 --font-path 等参数，请照搬你本地的命令
       - name: Build Notes
-        run: shiroa build  --path-to-root /notes/ --font-path assets/fonts
+        run: shiroa build  --path-to-root / --font-path assets/fonts
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
