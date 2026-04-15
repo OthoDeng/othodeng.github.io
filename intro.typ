@@ -27,45 +27,43 @@ This note was taken by #link("https://github.com/OthoDeng/notes")[Otto Deng]. He
 
 = About Me
 Hello! 
-I am *Otto (Kaihuai) Deng*, an undergraduate student majoring in Atmospheric Science, Hydrometeorology Division, _Nanjing University of Information Science and Technology_(NUIST). 
+I am *Otto (Kaihuai) Deng*, an undergraduate student majoring in Atmospheric Science, Hydrometeorology Division, _Nanjing University of Information Science and Technology_ (NUIST). 
 
 My academic interest lies in *extreme weather events, flash droughts, land–atmosphere coupling, WRF modeling*. I am deeply passionate about understanding the complex mechanisms behind these phenomena, leveraging advanced computational tools, remote sensing products, and modeling to quantify the impacts of anthropogenic climate change on global water resources. 
 
 For more information of my study, see also #link("https://t.me/AdolescentDelusions")[学术生活 Academic Life]: a Telegram channel where I share my thoughts on academia, research, and life as a student.
 
-Throughout my undergraduate studies, I have actively engaged in comprehensive, independent research. Some of my work has been published in peer-reviewed journals, and I have several manuscripts currently under review or in preparation:
-
-
+Some of the publications I have contributed to include:
 #rect(
   radius: 5pt,
   fill: rgb("#E3F2FD").lighten(50%),
 )[
   #set text(font: "Times New Roman")
   
-  *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). Global unequal exposure to intensifying hydrological droughts. _Journal of hydrology_. (Major Revision)
+  [1] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). Global unequal exposure to intensifying hydrological droughts. _Journal of hydrology_. (Major Revision)
 
-  *Deng, K.*, Huang, Z.\*, (2026). Intensifying global 3D terrestrial water storage drought under climate change. (To be submit)
+  [2] *Deng, K.*, Huang, Z.\*, (2026). Intensifying global 3D terrestrial water storage drought under climate change. (To be submit)
 
-  *Deng, K.\* * and Wang, J. (2024). A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean. _Science and Technology of Engineering, Chemistry, and Environmental Protection_. #link("../2024spring/SouthernOcean.html")[doi.org/10.61173/xnag2k18]
+  [3] *Deng, K.\* * and Wang, J. (2024). A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean. _Science and Technology of Engineering, Chemistry, and Environmental Protection_. #link("../2024spring/SouthernOcean.html")[doi.org/10.61173/xnag2k18]
 ]
 
 Complementing my academic work, I have gained practical forecasting and fieldwork experience at the _Guangdong Provincial Meteorological Observation_, and I am honored to be sponsored by the _Chinese Government Scholarship_ & _Mitacs Globalink Scholarship_ for an upcoming 2026 research internship at the _University of Prince Edward Island_ in Canada.
 
-- #link("https://OttoQwQ.me")[Blog Posts]
-- #link("https://t.me/Otttos_daily")[Telegram Channel] for my daily life and thoughts.
-- Email: #link("mailto:ottodeng9@gmail.com")[ottodeng9\[at\]gmail.com]
-
 
 = Interests
 I love traveling, hiking, and exploring new places.
-
-I enjoy photography, check out my Instagram for some of my works(also my daily reels): #link("https://www.instagram.com/0ttod3ng/")[\@0ttod3ng]. 
 
 Strong cooffee lover, sometimes tea as well. 
 
 I love languages learning, currently I can speak: `eng, chi[cmn, yue], fra`. But I actually don't know too much `jpn`.
 
 I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
+
+- For more of my personal life, see also:
+- #link("https://OttoQwQ.me")[Blog Posts]
+- #link("https://t.me/Otttos_daily")[Telegram Channel] for my daily life and thoughts.
+- Email: #link("mailto:ottodeng9@gmail.com")[ottodeng9\[at\]gmail.com]
+- Instagram: #link("https://www.instagram.com/0ttod3ng/")[\@0ttod3ng], my photography works(also my daily reels).
 
 
 = Research Experience
@@ -83,7 +81,6 @@ I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
   date: "2025.03 – 2025.07",
 
 )
-
 
 
 #cv_block(
@@ -120,6 +117,6 @@ I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
 
 = Acknowledgement
 This note is made by #link("https://github.com/typst/typst")[Typst], built with #link("https://github.com/Myriad-Dreamin/shiroa")[shiroa].
-In the lastest version of this note, I imported the #link("https://typst.app/universe/package/dvdtyp/")[dvdtyp] template for better styling.
+Some of the notes imported the #link("https://typst.app/universe/package/dvdtyp/")[dvdtyp] template for better styling.
 
 *shiroa* (_Shiro A_, or _The White_, or _云笺_) is a simple tool for creating modern online (cloud) books in pure typst. It has similar use cases as #link("https://rust-lang.github.io/mdBook/index.html")[mdBook], which is ideal for creating product or API documentation, tutorials, course materials or anything that requires a clean, easily navigable and customizable presentation.
