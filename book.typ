@@ -30,6 +30,9 @@
     - #chapter("2025spring/现代气候学.typ")[Modern Climatology]
     - #chapter("2025spring/计算方法.typ")[Computational Methods]
 
+    = 2025 Fall
+    - #chapter("2025fall/气象统计.typ")[Meteorological Statistics]
+    
     = 2026 Spring
     - #chapter("2026spring/数值天气预报.typ")[Numerical Weather Prediction]
 
