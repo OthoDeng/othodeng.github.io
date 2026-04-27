@@ -53,13 +53,13 @@ Complementing my academic work, I have gained practical forecasting and fieldwor
 = Interests
 I love traveling, hiking, and exploring new places.
 
-Strong cooffee lover, sometimes tea as well. 
+Strong cooffee lover, sometimes tea as well. Animal lover, both cats and dogs(but not limited to them). 
 
 I love languages learning, currently I can speak: `eng, chi[cmn, yue], fra`. But I actually don't know too much `jpn`.
 
 I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
 
-- For more of my personal life, see also:
+For more of my personal life, see also:
 - #link("https://OttoQwQ.me")[Blog Posts]
 - #link("https://t.me/Otttos_daily")[Telegram Channel] for my daily life and thoughts.
 - Email: #link("mailto:ottodeng9@gmail.com")[ottodeng9\[at\]gmail.com]
@@ -69,7 +69,7 @@ I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
 = Research Experience
 #cv_block(
   name: "Global Spatiotemporal Tracking of 3D Hydrological Drought & Exposure",
-  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Weizhong Huang] (NUIST)],
+  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
   location: "Nanjing",
   date: "2025.09 – Present",
 )
