@@ -1,6 +1,6 @@
 #import "book.typ": book-page
 
-#show: book-page.with(title: "About")
+#show: book-page.with(title: "Introduction")
 
 #let cv_block(
   name: none,
@@ -23,7 +23,9 @@
 
 I am *Otto (Kaihuai) Deng*, an undergraduate student in Atmospheric Science (Hydrometeorology) at _Nanjing University of Information Science and Technology_ (NUIST).
 
-My research centers on *satellite remote sensing of hydrological drought*, extending into *land–atmosphere coupling mechanisms* and *climate change impact attribution*. I grew up in Guangzhou, a monsoon- and typhoon-prone region — this drives my motivation to use science to reduce harm and inform equitable decision-making.
+My research centers on *satellite remote sensing of hydrological drought*, extending into *land–atmosphere coupling mechanisms* and *climate change impact attribution*. 
+
+I grew up in Guangzhou, a monsoon- and typhoon-prone region  this drives my motivation to use science to reduce harm and inform equitable decision-making.
 
 Supported by the *Chinese Government Scholarship* and *Mitacs Globalink Scholarship* (2026 internship at UPEI Climate Smart Lab).
 
@@ -37,8 +39,9 @@ Supported by the *Chinese Government Scholarship* and *Mitacs Globalink Scholars
 )[
   #set text(size: 0.95em)
 
-  *Satellite remote sensing of hydrological drought* · *terrestrial water storage (GRACE/GRACE-FO)* · *3D spatiotemporal drought tracking* · *land–atmosphere coupling* · *climate change detection & attribution* · *drought population exposure* · *WRF modeling* · *deep learning for Earth system science* · *fluctuation theorem & non-equilibrium statistical physics* · *numerical weather prediction*
+  *Remote sensing* · *Land–Atmosphere Coupling* · *Climate Change Attribution* · *Drought Population Exposure* · *WRF Modeling* · *Deep Learning* · *Fluctuation Theorem & Non-equilibrium Statistical Physics* · *Numerical Weather Prediction*
 ]
+
 = Publications
 
 #rect(
@@ -105,7 +108,6 @@ Supported by the *Chinese Government Scholarship* and *Mitacs Globalink Scholars
   date: "2024.03 – 2025.09",
 )
 - Developed a conceptual model for the SST dipole pattern in the Southern Pacific
-- Self-studied fluctuation response theory and non-equilibrium statistical physics
 - Published as first author in _STECEP_ (2024)
 
 #cv_block(
