@@ -27,7 +27,7 @@ My research centers on *satellite remote sensing of hydrological drought*, exten
 
 I grew up in Guangzhou, a monsoon- and typhoon-prone region  this drives my motivation to use science to reduce harm and inform equitable decision-making.
 
-Supported by the *Chinese Government Scholarship* and *Mitacs Globalink Scholarship* (2026 internship at UPEI Climate Smart Lab).
+Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Scholarship*, I am pursuing an 2026 internship at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada).
 
 #link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/OttoQwq")[Telegram]
 
