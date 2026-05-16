@@ -29,7 +29,7 @@ I grew up in Guangzhou, a monsoon- and typhoon-prone region  this drives my moti
 
 Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Scholarship*, I am pursuing an 2026 internship at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada).
 
-#link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/OttoQwq")[Telegram]
+#link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/OttoQwQ")[Telegram]
 
 = Research Interests
 
