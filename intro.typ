@@ -8,7 +8,7 @@
   entity: none,
   location: none,
   ) = {
-  heading(level:2, name)
+  heading(level:1, name)
   text(font: "New Computer Modern", style: "italic", date,)
   v(1pt)
   if entity != none {
@@ -149,19 +149,19 @@ Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Sch
 
   *Data:* GRACE/GRACE-FO CSR RL06, ERA5, GLDAS 2.2, GPW, Google Earth Engine, NetCDF/HDF5
 
-  *Methods:* EEMD, 3D spatiotemporal clustering, run theory, GMM, EOF, 11-year moving window, LHS, finite difference methods, von Neumann stability analysis
+  *Methods:* EEMD, clustering algorithm, run theory, GMM, EOF LHS, finite difference methods, von Neumann stability analysis
 
   *Models:* WRF/WPS, Xinanjiang (XAJ)
 
   *Programming:* Python (numpy, scipy, xarray, PyTorch) · Shell · Fortran · Git · Typst/LaTeX
 
-  *Languages:* Chinese (Mandarin, Cantonese), English (IELTS 7.0, C1), French (A2)
+  *Languages:* Chinese (Mandarin, Cantonese, Hokkien), English (IELTS 7.0, C1), French (A2)
 ]
 
 
 = Personal
 
-I love traveling, hiking, and photography — find me on #link("https://www.instagram.com/0ttod3ng/")[Instagram \@0ttod3ng]. Coffee and tea lover, animal person. I play #link("https://maimaidx.jp/")[maimai でらっくす].
+I love traveling, hiking, and photography — find me on #link("https://www.instagram.com/0ttod3ng/")[Instagram \@0ttod3ng]. Coffee and tea lover, animal person. I play #link("https://maimaidx.jp/")[maimai でらっくす] BTW.
 
 More: #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/Otttos_daily")[Daily Life] · #link("https://t.me/AdolescentDelusions")[学术生活 Academic Life]
 
