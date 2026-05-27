@@ -13,9 +13,6 @@
   summary: [ // this field works like summary.md of mdbook
     #prefix-chapter("intro.typ")[Introduction]
 
-    = 2024 Spring
-    - #chapter("2024spring/大气探测学.typ")[Atmospheric Measurement and Instrumentation]
-
     = 2024 Fall
     - #chapter("2024fall/流体力学上.typ")[Fluid Dynamics I]
     - #chapter("2024fall/流体力学下.typ")[Fluid Dynamics II]
