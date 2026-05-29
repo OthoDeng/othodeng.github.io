@@ -1,4 +1,6 @@
 #import "@preview/dvdtyp:1.0.1": *
+#import "../book.typ": book-page
+#show: book-page.with(title: "Remote Sensing")
 
 #show: dvdtyp.with(
   title: "Remote Sensing",
