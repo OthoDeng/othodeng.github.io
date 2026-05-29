@@ -6,7 +6,7 @@
 #book-meta( // put metadata of your book like book.toml of mdbook
   title: "Notebook by Otto",
   description: "Course notes",
-  repository: "https://github.com/OthoDeng",
+  repository: "https://github.com/othodeng/othodeng.github.io",
   authors: ("Kaihuai-Deng", "Otto-Deng"),
   language: "en",
 
@@ -32,6 +32,8 @@
     
     = 2026 Spring
     - #chapter("2026spring/数值天气预报.typ")[Numerical Weather Prediction]
+    - #chapter("2026spring/水文气象模型.typ")[Hydrological and Meteorological Models]
+
 
     = Research
     - #chapter("2024spring/RemoteSensing.typ")[Remote Sensing Quick Notes]
