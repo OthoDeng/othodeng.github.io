@@ -1,13 +1,6 @@
 #import "../book.typ": book-page
-
-#show raw.where(block:true): it => block(
-  width: 100%,
-  fill: rgb("#F2F2F2"),
-  inset: 1pt,
-  radius: 3pt,
-  text(fill: rgb("#6e7480"), it)
-)
-= Hydrological and Meteorological Models: XAJ
+#show: book-page.with(title: "Hydrological and Meteorological Models: XAJ")
+ 
 
 = 流域介绍
 屯溪流域集水面积为$2697 k m^2$，上游嵌套呈村流域与月潭流域，集水面积分别为290km2、954km2。屯溪流域邻近中国东南沿海，位于亚热带季风气候区，年平均温度为17℃。冬季盛行西北风，天气晴冷干燥，夏季多东南风，气温高，光照强，空气湿润；春、秋两季气旋活动频繁，冷暖变化大。春季及初夏多锋面雨，夏秋之际多台风。屯溪流域地势西高东低，最大、最小海拔高程分别为1614m、115m，相对高差较大。屯溪流域多年平均降雨量为1600mm，多年平均蒸发量为920mm。降雨在年内、年际分配极不均匀；4-6月多雨，降雨量占全年降雨量的50%，易发生洪涝灾害；7-9月降雨量仅占20%，旱灾频繁。DEM从地理空间数据云网站下载（http://www.gscloud.cn/），选择SRTMDEM数字高程数据产品，分辨率为90m×90m。
