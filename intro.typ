@@ -23,7 +23,7 @@
 
 I am *Otto (Kaihuai) Deng*, an undergraduate student in Atmospheric Science (Hydrometeorology) at _Nanjing University of Information Science and Technology_ (NUIST).
 
-My research centers on *satellite remote sensing of hydrological drought*, extending into *land–atmosphere coupling mechanisms* and *climate change impact attribution*. 
+My research centers on *satellite remote sensing of hydrological drought*, extending into *land–atmosphere coupling mechanisms* and *climate change impact attribution*. Click here to view my resume: #link("../cv/CV_KaihuaiDeng.pdf")[CV_Kaihuai_Deng.pdf].
 
 I grew up in Guangzhou, a monsoon- and typhoon-prone region  this drives my motivation to use science to reduce harm and inform equitable decision-making.
 
@@ -72,7 +72,8 @@ Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Sch
 )
 - Adapted and refined a 3D drought tracking algorithm (connected-component labeling + directional overlap tracking, originated from #link("https://www.linkedin.com/in/herreraestrada/")[Dr. Julio E. Herrera-Estrada]) for GRACE/GRACE-FO TWS data; tuned parameters for global-scale application
 - Applied EEMD + run theory to compute DSI; classified drought mechanisms via GMM of $C_E$
-- Identified 672 global 3D drought events; analyzed trends in frequency, duration, intensity, and spatial migration
+- Identified 672 global 3D drought events; analyzed trends in frequency, duration, intensity, and spatial migration、
+- Transformed into 2026 *Provincial Undergraduate Training Program on Innovation and Entrepreneurship*. //（Number：Not known yet）
 
 #cv_block(
   name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
