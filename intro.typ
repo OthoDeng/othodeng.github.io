@@ -21,7 +21,7 @@
 
 = About Me
 
-I am *Otto (Kaihuai) Deng*, an undergraduate student in Atmospheric Science (Hydrometeorology) at _Nanjing University of Information Science and Technology_ (NUIST). My latest resume: #link("../cv/CV_KaihuaiDeng.pdf")[CV_Kaihuai_Deng.pdf].
+I am *Otto (Kaihuai) Deng*, an undergraduate student in Atmospheric Science (Hydrometeorology) at _Nanjing University of Information Science and Technology_ (NUIST). My latest resume: #link("https://raw.githubusercontent.com/OthoDeng/othodeng.github.io/main/cv/CV_KaihuaiDeng.pdf")[CV_Kaihuai_Deng.pdf].
 
 My research centers on *satellite remote sensing of hydrological drought*, extending into *land–atmosphere coupling mechanisms* and *climate change impact attribution*. 
 
