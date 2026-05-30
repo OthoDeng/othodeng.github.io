@@ -13,6 +13,11 @@
   summary: [ // this field works like summary.md of mdbook
     #prefix-chapter("intro.typ")[Introduction]
 
+    = Research
+    - #chapter("2024spring/RemoteSensing.typ")[Remote Sensing Quick Notes]
+    - #chapter("2024spring/SouthernOcean.typ")[A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean]
+    - #chapter("2025spring/GCA2.typ")[The 2nd GEOS-Chem Asia Meeting (GCA2)]
+
     = 2024 Fall
     - #chapter("2024fall/流体力学上.typ")[Fluid Dynamics I]
     - #chapter("2024fall/流体力学下.typ")[Fluid Dynamics II]
@@ -37,12 +42,6 @@
       - #chapter("2026spring/数值天气预报实习报告三.typ")[NWP Practice 3]
 
     - #chapter("2026spring/水文气象模型.typ")[Hydrological and Meteorological Models]
-
-
-    = Research
-    - #chapter("2024spring/RemoteSensing.typ")[Remote Sensing Quick Notes]
-    - #chapter("2024spring/SouthernOcean.typ")[A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean]
-    - #chapter("2025spring/GCA2.typ")[The 2nd GEOS-Chem Asia Meeting (GCA2)]
 
 
   ],
