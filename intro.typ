@@ -57,8 +57,6 @@ Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Sch
   #text(size: 0.85em, fill: luma(40%))[Adapted a 3D drought tracking algorithm (originated from Herrera-Estrada et al.) to identify 672 global drought events; classified supply-deficit vs. compound droughts via GMM of $C_E$.]
 
   [3] *Deng, K.\* * and Wang, J. (2024). A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean. _STECEP_. #link("../2024spring/SouthernOcean.html")[doi.org/10.61173/xnag2k18]
-
-  [4] Yang, Z., Liu, Y., Wu, Y., Wen, Y., Wu, J., *Deng, K.*, et al. (2024). PET Image Synthesis from MRI Using Generative Adversarial Networks. _UV2024, IEEE_.
 ]
 
 
