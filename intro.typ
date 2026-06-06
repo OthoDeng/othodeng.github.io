@@ -27,7 +27,7 @@ My research centers on *satellite remote sensing of hydrological drought*, exten
 
 I grew up in Guangzhou, a monsoon- and typhoon-prone region  this drives my motivation to use science to reduce harm and inform equitable decision-making.
 
-Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Scholarship*, I am pursuing an 2026 internship at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada).
+Supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Scholarship* ($<=$260 awardees nationwide), I am pursuing an 2026 internship at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada).
 
 #link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/OttoQwQ")[Telegram]
 
@@ -53,8 +53,8 @@ Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Sch
   [1] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). Global unequal exposure to intensifying hydrological droughts. _Journal of Hydrology_. (Major Revision)
   #text(size: 0.85em, fill: luma(40%))[Climate change contributed 64.5% to increased global drought population exposure.]
 
-  [2] *Deng, K.*, Huang, Z.\*, (2026). Intensifying global 3D terrestrial water storage drought under climate change. (To be submitted)
-  #text(size: 0.85em, fill: luma(40%))[Adapted a 3D drought tracking algorithm (originated from Herrera-Estrada et al.) to identify 672 global drought events; classified supply-deficit vs. compound droughts via GMM of $C_E$.]
+  [2] *Deng, K.*, Huang, Z.\*, (2026). Intensifying global 3D terrestrial water storage drought under climate change. (_Geophysical Research Letters_, to be submitted as Letter)
+  #text(size: 0.85em, fill: luma(40%))[First 3D drought tracking applied to GRACE/GRACE-FO TWS; identified 672 global events; EEMD detrending + $C_E$ framework reveal a regime shift from supply-deficit to compound droughts. Funded by 2026 Provincial Undergraduate Training Program on Innovation and Entrepreneurship (XJDC202610300604, PI).]
 
   [3] *Deng, K.\* * and Wang, J. (2024). A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean. _STECEP_. #link("../2024spring/SouthernOcean.html")[doi.org/10.61173/xnag2k18]
 ]
@@ -70,8 +70,9 @@ Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Sch
 )
 - Adapted and refined a 3D drought tracking algorithm (connected-component labeling + directional overlap tracking, originated from #link("https://www.linkedin.com/in/herreraestrada/")[Dr. Julio E. Herrera-Estrada]) for GRACE/GRACE-FO TWS data; tuned parameters for global-scale application
 - Applied EEMD + run theory to compute DSI; classified drought mechanisms via GMM of $C_E$
-- Identified 672 global 3D drought events; analyzed trends in frequency, duration, intensity, and spatial migration、
-- Transformed into 2026 *Provincial Undergraduate Training Program on Innovation and Entrepreneurship*. //（Number：Not known yet）
+- Identified 672 global 3D drought events; analyzed trends in frequency, duration, intensity, and spatial migration
+- Revealed a systematic regime shift from precipitation-driven to evaporative-demand-amplified drought (14.8% of drought grid cells)
+- Transformed into 2026 Provincial Undergraduate Training Program on Innovation and Entrepreneurship (XJDC202610300604, provincial-level recommended, PI)
 
 #cv_block(
   name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
@@ -128,6 +129,7 @@ Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Sch
   location: "PEI, Canada",
   date: "2026.07 – 2026.10",
 )
+- Potential topics: (a) land–atmosphere coupling diagnostics across high- vs. low-resolution models, (b) GRACE-based groundwater trend analysis for PEI
 
 #cv_block(
   name: "Leizhou Meteorological Bureau",
@@ -146,13 +148,13 @@ Supported by the *Chinese Government Scholarship(CSC)* and *Mitacs Globalink Sch
 )[
   #set text(size: 0.95em)
 
-  *Data:* GRACE/GRACE-FO CSR RL06, ERA5, GLDAS 2.2, GPW, Google Earth Engine, NetCDF/HDF5
+  *Data:* GRACE/GRACE-FO CSR RL06, ERA5, GLDAS 2.2, GPW, ASTER GDEM, GPM IMERG, SMAP, Google Earth Engine, NetCDF/HDF5
 
-  *Methods:* EEMD, clustering algorithm, run theory, GMM, EOF LHS, finite difference methods, von Neumann stability analysis
+  *Methods:* EEMD, 3D drought tracking, connected component labeling, run theory, GMM, EOF, LHS, TWI, RSI, finite difference methods, von Neumann stability analysis
 
   *Models:* WRF/WPS, Xinanjiang (XAJ)
 
-  *Programming:* Python (numpy, scipy, xarray, PyTorch) · Shell · Fortran · Git · Typst/LaTeX
+  *Programming:* Python (numpy, scipy, xarray, PyTorch) · MATLAB (TopoToolbox) · Shell · Fortran · Git · Typst/LaTeX
 
   *Languages:* Chinese (Mandarin, Cantonese, Hokkien), English (IELTS 7.0, C1), French (A2)
 ]
