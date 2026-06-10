@@ -122,24 +122,33 @@ jobs:
       - name: Optimize images (compress/resize/WebP/AVIF)
         if: steps.changes.outputs.optimize_assets == 'true'
         run: |
+          # Tunable image optimization parameters
+          MAX_WIDTH=1920
+          PNG_QUALITY=60-85
+          JPEG_MAX=82
+          WEBP_QUALITY=82
+          AVIF_MIN=20
+          AVIF_MAX=35
+          AVIF_SPEED=6
+
           find book -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) -print0 | while IFS= read -r -d '' img; do
             width=$(identify -format "%w" "$img" 2>/dev/null || echo 0)
-            if [ "${width:-0}" -gt 1920 ]; then
-              mogrify -resize '1920x>' "$img" || true
+            if [ "${width:-0}" -gt "$MAX_WIDTH" ]; then
+              mogrify -resize "${MAX_WIDTH}x>" "$img" || true
             fi
 
             case "${img,,}" in
               *.png)
-                pngquant --force --skip-if-larger --quality=60-85 --ext .png "$img" || true
+                pngquant --force --skip-if-larger --quality="$PNG_QUALITY" --ext .png "$img" || true
                 optipng -quiet "$img" || true
                 ;;
               *.jpg|*.jpeg)
-                jpegoptim --strip-all --max=82 "$img" || true
+                jpegoptim --strip-all --max="$JPEG_MAX" "$img" || true
                 ;;
             esac
 
-            cwebp -quiet -q 82 "$img" -o "${img%.*}.webp" || true
-            avifenc --min 20 --max 35 --speed 6 "$img" "${img%.*}.avif" || true
+            cwebp -quiet -q "$WEBP_QUALITY" "$img" -o "${img%.*}.webp" || true
+            avifenc --min "$AVIF_MIN" --max "$AVIF_MAX" --speed "$AVIF_SPEED" "$img" "${img%.*}.avif" || true
           done
 
       - name: Prefer AVIF/WebP in generated HTML/CSS/JS
@@ -309,15 +318,16 @@ jobs:
           import sys
 
           THRESHOLDS = {
-            "largest-contentful-paint": 4500,
+            "largest-contentful-paint": 2500,
             "total-blocking-time": 300,
-            "cumulative-layout-shift": 0.15,
-            "total-byte-weight": 1800000,
+            "cumulative-layout-shift": 0.1,
+            "total-byte-weight": 1600000,
           }
 
           failed = False
           for report in sorted(glob.glob("lighthouse-*.json")):
-            data = json.load(open(report, "r", encoding="utf-8"))
+            with open(report, "r", encoding="utf-8") as f:
+              data = json.load(f)
             audits = data.get("audits", {})
             print(f"== {report} ==")
             for key, lim in THRESHOLDS.items():
