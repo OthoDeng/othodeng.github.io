@@ -29,7 +29,30 @@ jobs:
         with:
           submodules: recursive # 如果你有用到子模块，保持开启
 
+      - name: Detect image/style changes
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            optimize_assets:
+              - '**/*.png'
+              - '**/*.jpg'
+              - '**/*.jpeg'
+              - '**/*.webp'
+              - '**/*.avif'
+              - '**/*.css'
+              - 'templates/**'
+              - '.github/workflows/deploy.yml'
+
+      - name: Cache font assets
+        id: cache-fonts
+        uses: actions/cache@v4
+        with:
+          path: assets/fonts
+          key: ${{ runner.os }}-shiroa-font-assets-v2
+
       - name: Download font assets
+        if: steps.cache-fonts.outputs.cache-hit != 'true'
         run: |
           mkdir -p assets/fonts
           curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.1.0/charter-font-assets.tar.gz | tar -xvz -C assets/fonts/
@@ -54,10 +77,345 @@ jobs:
         if: steps.cache-shiroa.outputs.cache-hit != 'true'
         run: cargo install --git https://github.com/Myriad-Dreamin/shiroa.git --tag v0.2.0 --locked shiroa
 
+      - name: Cache npm tool downloads
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-tools-v1
+
+      - name: Install optimization and audit tools
+        run: |
+          mkdir -p /tmp/npm-tools
+          npm install --prefix /tmp/npm-tools html-minifier-terser clean-css-cli terser lighthouse
+          echo "/tmp/npm-tools/node_modules/.bin" >> "$GITHUB_PATH"
+
+      - name: Install image optimization tools
+        if: steps.changes.outputs.optimize_assets == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick webp libavif-bin jpegoptim optipng pngquant
+
       # 运行编译（请根据你本地实际的输出文件夹进行修改，假设输出在 book/ 文件夹）
       # 如果你的命令有加 --font-path 等参数，请照搬你本地的命令
       - name: Build Notes
         run: shiroa build  --path-to-root / --font-path assets/fonts
+
+      - name: Collect pre-optimization size stats
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("book")
+          files = [p for p in root.rglob("*") if p.is_file()]
+          total_bytes = sum(p.stat().st_size for p in files)
+          html_files = [p for p in files if p.suffix.lower() == ".html"]
+          largest_html = max(html_files, key=lambda p: p.stat().st_size, default=None)
+          out = {
+              "total_bytes": total_bytes,
+              "file_count": len(files),
+              "largest_html": str(largest_html) if largest_html else "",
+              "largest_html_bytes": largest_html.stat().st_size if largest_html else 0,
+          }
+          Path("perf-pre.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(json.dumps(out, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Optimize images (compress/resize/WebP/AVIF)
+        if: steps.changes.outputs.optimize_assets == 'true'
+        run: |
+          # Tunable image optimization parameters
+          MAX_WIDTH=1920
+          PNG_QUALITY=60-85
+          JPEG_MAX=82
+          WEBP_QUALITY=82
+          AVIF_MIN=20
+          AVIF_MAX=35
+          AVIF_SPEED=6
+
+          find book -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) -print0 | while IFS= read -r -d '' img; do
+            width=$(identify -format "%w" "$img" 2>/dev/null || echo 0)
+            if [ "${width:-0}" -gt "$MAX_WIDTH" ]; then
+              mogrify -resize "${MAX_WIDTH}x>" "$img" || true
+            fi
+
+            case "${img,,}" in
+              *.png)
+                pngquant --force --skip-if-larger --quality="$PNG_QUALITY" --ext .png "$img" || true
+                optipng -quiet "$img" || true
+                ;;
+              *.jpg|*.jpeg)
+                jpegoptim --strip-all --max="$JPEG_MAX" "$img" || true
+                ;;
+            esac
+
+            cwebp -quiet -q "$WEBP_QUALITY" "$img" -o "${img%.*}.webp" || true
+            avifenc --min "$AVIF_MIN" --max "$AVIF_MAX" --speed "$AVIF_SPEED" "$img" "${img%.*}.avif" || true
+          done
+
+      - name: Prefer AVIF/WebP in generated HTML/CSS/JS
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+
+          root = Path("book").resolve()
+          text_exts = {".html", ".css", ".js"}
+          url_re = re.compile(r'(?P<path>[^"\'()\s>]+?)\.(?P<ext>png|jpg|jpeg)', re.IGNORECASE)
+
+          def exists_from(base: Path, rel: str) -> bool:
+            p1 = (base / rel).resolve()
+            p2 = (root / rel.lstrip("/")).resolve()
+            return p1.exists() or p2.exists()
+
+          for file in root.rglob("*"):
+            if not file.is_file() or file.suffix.lower() not in text_exts:
+              continue
+            txt = file.read_text(encoding="utf-8", errors="ignore")
+
+            def repl(m):
+              p = m.group("path")
+              avif = f"{p}.avif"
+              webp = f"{p}.webp"
+              base = file.parent
+              if exists_from(base, avif):
+                return avif
+              if exists_from(base, webp):
+                return webp
+              return m.group(0)
+
+            out = url_re.sub(repl, txt)
+            if out != txt:
+              file.write_text(out, encoding="utf-8")
+          PY
+
+      - name: Minify HTML/CSS/JS
+        run: |
+          find book -type f -name '*.html' -print0 | while IFS= read -r -d '' f; do
+            html-minifier-terser \
+              --collapse-whitespace \
+              --remove-comments \
+              --remove-redundant-attributes \
+              --remove-script-type-attributes \
+              --remove-style-link-type-attributes \
+              --minify-css true \
+              --minify-js true \
+              --case-sensitive "$f" \
+              -o "$f" || true
+          done
+
+          find book -type f -name '*.css' -print0 | while IFS= read -r -d '' f; do
+            cleancss -O2 -o "$f" "$f" || true
+          done
+
+          find book -type f -name '*.js' -print0 | while IFS= read -r -d '' f; do
+            terser "$f" --compress --mangle --output "$f" || true
+          done
+
+      - name: Add content hash to CSS/JS assets and rewrite references
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          from pathlib import Path
+
+          root = Path("book").resolve()
+          target_exts = {".css", ".js"}
+          text_exts = {".html", ".css", ".js", ".xml", ".txt"}
+
+          mapping = {}
+          for path in sorted([p for p in root.rglob("*") if p.is_file() and p.suffix.lower() in target_exts]):
+            data = path.read_bytes()
+            digest = hashlib.sha256(data).hexdigest()[:8]
+            new_path = path.with_name(f"{path.stem}.{digest}{path.suffix}")
+            path.rename(new_path)
+            mapping[path.name] = new_path.name
+            mapping[str(path.relative_to(root)).replace("\\", "/")] = str(new_path.relative_to(root)).replace("\\", "/")
+
+          if mapping:
+            keys = sorted(mapping.keys(), key=len, reverse=True)
+            for path in root.rglob("*"):
+              if not path.is_file() or path.suffix.lower() not in text_exts:
+                continue
+              txt = path.read_text(encoding="utf-8", errors="ignore")
+              out = txt
+              for k in keys:
+                out = out.replace(k, mapping[k])
+              if out != txt:
+                path.write_text(out, encoding="utf-8")
+          PY
+
+      - name: Cleanup temporary/source-map/unreferenced legacy assets
+        run: |
+          find book -type f \( -name '*.map' -o -name '*.tmp' -o -name '*.temp' -o -name '*.bak' -o -name '*.orig' \) -delete
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+
+          root = Path("book").resolve()
+          text_exts = {".html", ".css", ".js"}
+          refs = set()
+          patt = re.compile(r'([^"\'()\s>]+\.(?:png|jpg|jpeg|webp|avif))', re.IGNORECASE)
+
+          for p in root.rglob("*"):
+            if not p.is_file() or p.suffix.lower() not in text_exts:
+              continue
+            txt = p.read_text(encoding="utf-8", errors="ignore")
+            for m in patt.findall(txt):
+              refs.add(m.lstrip("./"))
+              refs.add(m.lstrip("/"))
+
+          for img in root.rglob("*"):
+            if not img.is_file() or img.suffix.lower() not in {".png", ".jpg", ".jpeg"}:
+              continue
+            rel = str(img.relative_to(root)).replace("\\", "/")
+            modern_exists = img.with_suffix(".avif").exists() or img.with_suffix(".webp").exists()
+            if modern_exists and rel not in refs:
+              img.unlink(missing_ok=True)
+          PY
+
+      - name: Run Lighthouse gate (LCP/TBT/CLS/bytes)
+        run: |
+          PORT=$(python3 - <<'PY'
+          import socket
+          s = socket.socket()
+          s.bind(("127.0.0.1", 0))
+          print(s.getsockname()[1])
+          s.close()
+          PY
+          )
+
+          python3 -m http.server "$PORT" --directory book >/tmp/book-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+
+          for _ in {1..10}; do
+            if curl -fsS "http://127.0.0.1:${PORT}/" >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS "http://127.0.0.1:${PORT}/" >/dev/null
+
+          HEAVY_PAGE=$(find book -type f -name '*.html' -printf '%s %p\n' | sort -nr | awk 'NR==1 {print $2}')
+          if [ -z "$HEAVY_PAGE" ]; then
+            echo "No HTML pages generated for Lighthouse." >&2
+            exit 1
+          fi
+
+          HEAVY_URL_PATH=$(python3 - <<'PY'
+          import os
+          from pathlib import Path
+          from urllib.parse import quote
+          p = os.environ["HEAVY_PAGE"]
+          rel = Path(p).relative_to("book").as_posix()
+          print("/" + quote(rel, safe="/"))
+          PY
+          )
+
+          URLS=(
+            "http://127.0.0.1:${PORT}/"
+            "http://127.0.0.1:${PORT}${HEAVY_URL_PATH}"
+          )
+          if [ -f "book/intro.html" ]; then
+            URLS+=("http://127.0.0.1:${PORT}/intro.html")
+          fi
+
+          idx=0
+          for url in "${URLS[@]}"; do
+            idx=$((idx+1))
+            lighthouse "$url" \
+              --quiet \
+              # --no-sandbox is required for headless Chrome in GitHub-hosted Linux runners.
+              --chrome-flags="--headless=new --no-sandbox" \
+              --output=json \
+              --output-path="lighthouse-$idx.json" || exit 1
+          done
+
+          python3 - <<'PY'
+          import glob
+          import json
+          import sys
+
+          THRESHOLDS = {
+            "largest-contentful-paint": 2500,
+            "total-blocking-time": 300,
+            "cumulative-layout-shift": 0.1,
+            "total-byte-weight": 1600000,
+          }
+
+          failed = False
+          for report in sorted(glob.glob("lighthouse-*.json")):
+            with open(report, "r", encoding="utf-8") as f:
+              data = json.load(f)
+            audits = data.get("audits", {})
+            print(f"== {report} ==")
+            for key, lim in THRESHOLDS.items():
+              val = audits.get(key, {}).get("numericValue")
+              if val is None:
+                print(f"  {key}: missing")
+                failed = True
+                continue
+              print(f"  {key}: {val} (limit: {lim})")
+              if val > lim:
+                failed = True
+
+          if failed:
+            print("Lighthouse gate failed.", file=sys.stderr)
+            sys.exit(1)
+          PY
+
+      - name: Collect post-optimization size stats and diff report
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("book")
+          files = [p for p in root.rglob("*") if p.is_file()]
+          total_bytes = sum(p.stat().st_size for p in files)
+          html_files = [p for p in files if p.suffix.lower() == ".html"]
+          largest_html = max(html_files, key=lambda p: p.stat().st_size, default=None)
+
+          post = {
+              "total_bytes": total_bytes,
+              "file_count": len(files),
+              "largest_html": str(largest_html) if largest_html else "",
+              "largest_html_bytes": largest_html.stat().st_size if largest_html else 0,
+          }
+          Path("perf-post.json").write_text(json.dumps(post, ensure_ascii=False, indent=2), encoding="utf-8")
+
+          pre = json.loads(Path("perf-pre.json").read_text(encoding="utf-8"))
+          delta = post["total_bytes"] - pre["total_bytes"]
+          ratio = (delta / pre["total_bytes"] * 100) if pre["total_bytes"] else 0.0
+
+          md = [
+              "# Build Performance Report",
+              "",
+              "## Size Summary",
+              f"- Total size (before): {pre['total_bytes']} bytes",
+              f"- Total size (after): {post['total_bytes']} bytes",
+              f"- Delta: {delta} bytes ({ratio:.2f}%)",
+              f"- File count (before): {pre['file_count']}",
+              f"- File count (after): {post['file_count']}",
+              "",
+              "## Largest HTML",
+              f"- Before: `{pre['largest_html']}` ({pre['largest_html_bytes']} bytes)",
+              f"- After: `{post['largest_html']}` ({post['largest_html_bytes']} bytes)",
+          ]
+          Path("perf-report.md").write_text("\n".join(md), encoding="utf-8")
+          print("\n".join(md))
+          PY
+
+      - name: Upload performance report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-report
+          path: |
+            perf-pre.json
+            perf-post.json
+            perf-report.md
+            lighthouse-*.json
+            /tmp/book-server.log
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
