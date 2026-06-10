@@ -296,7 +296,7 @@ jobs:
           done
           curl -fsS "http://127.0.0.1:${PORT}/" >/dev/null
 
-          HEAVY_PAGE=$(find book -type f -name '*.html' -printf '%s %p\n' | sort -nr | awk 'NR==1 {print $2}')
+          export HEAVY_PAGE=$(find book -type f -name '*.html' -printf '%s %p\n' | sort -nr | awk 'NR==1 {print $2}')
           if [ -z "$HEAVY_PAGE" ]; then
             echo "No HTML pages generated for Lighthouse." >&2
             exit 1
@@ -323,9 +323,9 @@ jobs:
           idx=0
           for url in "${URLS[@]}"; do
             idx=$((idx+1))
+            # --no-sandbox is required for headless Chrome in GitHub-hosted Linux runners.
             lighthouse "$url" \
               --quiet \
-              # --no-sandbox is required for headless Chrome in GitHub-hosted Linux runners.
               --chrome-flags="--headless=new --no-sandbox" \
               --output=json \
               --output-path="lighthouse-$idx.json" || exit 1
