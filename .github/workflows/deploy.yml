@@ -321,7 +321,7 @@ jobs:
           fi
 
           idx=0
-          : > lighthouse-urls.txt
+          touch lighthouse-urls.txt
           for url in "${URLS[@]}"; do
             idx=$((idx+1))
             printf '%s\t%s\n' "$idx" "$url" >> lighthouse-urls.txt
@@ -348,10 +348,10 @@ jobs:
           }
 
           HEAVY_PAGE_THRESHOLDS = {
-            "largest-contentful-paint": 130000,
-            "total-blocking-time": 2500,
+            "largest-contentful-paint": 120000,
+            "total-blocking-time": 2200,
             "cumulative-layout-shift": 0.1,
-            "total-byte-weight": 26000000,
+            "total-byte-weight": 24000000,
           }
 
           failed = False
