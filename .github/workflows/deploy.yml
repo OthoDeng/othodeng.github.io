@@ -205,7 +205,7 @@ jobs:
             cleancss -O2 -o "$f" "$f" || true
           done
 
-          find book -type f -name '*.js' -print0 | while IFS= read -r -d '' f; do
+          find book -type f -name '*.js' -not -path '*/internal/*' -not -name 'shiroa.js' -print0 | while IFS= read -r -d '' f; do
             terser "$f" --compress --mangle --output "$f" || true
           done
 
