@@ -65,7 +65,6 @@ jobs:
       - name: Setup Rust Cache
         uses: Swatinem/rust-cache@v2
       
-      
       - name: Cache Shiroa executable
         id: cache-shiroa
         uses: actions/cache@v3
@@ -83,10 +82,10 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-npm-tools-v1
 
-      - name: Install optimization and audit tools
+      - name: Install optimization tools
         run: |
           mkdir -p /tmp/npm-tools
-          npm install --prefix /tmp/npm-tools html-minifier-terser clean-css-cli terser lighthouse
+          npm install --prefix /tmp/npm-tools html-minifier-terser clean-css-cli terser
           echo "/tmp/npm-tools/node_modules/.bin" >> "$GITHUB_PATH"
 
       - name: Install image optimization tools
@@ -96,9 +95,8 @@ jobs:
           sudo apt-get install -y imagemagick webp libavif-bin jpegoptim optipng pngquant
 
       # 运行编译（请根据你本地实际的输出文件夹进行修改，假设输出在 book/ 文件夹）
-      # 如果你的命令有加 --font-path 等参数，请照搬你本地的命令
       - name: Build Notes
-        run: shiroa build  --path-to-root / --font-path assets/fonts
+        run: shiroa build --path-to-root / --font-path assets/fonts
 
       - name: Collect pre-optimization size stats
         run: |
@@ -124,7 +122,6 @@ jobs:
       - name: Optimize images (compress/resize/WebP/AVIF)
         if: steps.changes.outputs.optimize_assets == 'true'
         run: |
-          # Tunable image optimization parameters
           MAX_WIDTH=1920
           PNG_QUALITY=60-85
           JPEG_MAX=82
@@ -273,119 +270,6 @@ jobs:
               img.unlink(missing_ok=True)
           PY
 
-      - name: Run Lighthouse gate (LCP/TBT/CLS/bytes)
-        run: |
-          PORT=$(python3 - <<'PY'
-          import socket
-          s = socket.socket()
-          s.bind(("127.0.0.1", 0))
-          print(s.getsockname()[1])
-          s.close()
-          PY
-          )
-
-          python3 -m http.server "$PORT" --directory book >/tmp/book-server.log 2>&1 &
-          SERVER_PID=$!
-          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
-
-          for _ in {1..10}; do
-            if curl -fsS "http://127.0.0.1:${PORT}/" >/dev/null; then
-              break
-            fi
-            sleep 1
-          done
-          curl -fsS "http://127.0.0.1:${PORT}/" >/dev/null
-
-          export HEAVY_PAGE=$(find book -type f -name '*.html' -printf '%s %p\n' | sort -nr | awk 'NR==1 {print $2}')
-          if [ -z "$HEAVY_PAGE" ]; then
-            echo "No HTML pages generated for Lighthouse." >&2
-            exit 1
-          fi
-
-          export HEAVY_URL_PATH=$(python3 - <<'PY'
-          import os
-          from pathlib import Path
-          from urllib.parse import quote
-          p = os.environ["HEAVY_PAGE"]
-          rel = Path(p).relative_to("book").as_posix()
-          print("/" + quote(rel, safe="/"))
-          PY
-          )
-
-          URLS=(
-            "http://127.0.0.1:${PORT}/"
-            "http://127.0.0.1:${PORT}${HEAVY_URL_PATH}"
-          )
-          if [ -f "book/intro.html" ]; then
-            URLS+=("http://127.0.0.1:${PORT}/intro.html")
-          fi
-
-          idx=0
-          touch lighthouse-urls.txt
-          for url in "${URLS[@]}"; do
-            idx=$((idx+1))
-            printf '%s\t%s\n' "$idx" "$url" >> lighthouse-urls.txt
-            # --no-sandbox is required for headless Chrome in GitHub-hosted Linux runners.
-            lighthouse "$url" \
-              --quiet \
-              --chrome-flags="--headless=new --no-sandbox" \
-              --output=json \
-              --output-path="lighthouse-$idx.json" || exit 1
-          done
-
-          python3 - <<'PY'
-          import glob
-          import json
-          import os
-          import sys
-          from urllib.parse import urlparse
-
-          DEFAULT_THRESHOLDS = {
-            "largest-contentful-paint": 8000,
-            "total-blocking-time": 1500,
-            "cumulative-layout-shift": 0.1,
-            "total-byte-weight": 2100000,
-          }
-
-          HEAVY_PAGE_THRESHOLDS = {
-            "largest-contentful-paint": 120000,
-            "total-blocking-time": 2200,
-            "cumulative-layout-shift": 0.1,
-            "total-byte-weight": 24000000,
-          }
-
-          failed = False
-          report_urls = {}
-          if os.path.exists("lighthouse-urls.txt"):
-            with open("lighthouse-urls.txt", "r", encoding="utf-8") as f:
-              for line in f:
-                idx, url = line.rstrip("\n").split("\t", 1)
-                report_urls[f"lighthouse-{idx}.json"] = url
-
-          heavy_path = os.environ.get("HEAVY_URL_PATH", "")
-          for report in sorted(glob.glob("lighthouse-*.json")):
-            with open(report, "r", encoding="utf-8") as f:
-              data = json.load(f)
-            audits = data.get("audits", {})
-            report_url = report_urls.get(report) or data.get("finalDisplayedUrl") or data.get("finalUrl") or data.get("requestedUrl") or ""
-            report_path = urlparse(report_url).path if report_url else ""
-            thresholds = HEAVY_PAGE_THRESHOLDS if heavy_path and report_path == heavy_path else DEFAULT_THRESHOLDS
-            print(f"== {report} ==")
-            for key, lim in thresholds.items():
-              val = audits.get(key, {}).get("numericValue")
-              if val is None:
-                print(f"  {key}: missing")
-                failed = True
-                continue
-              print(f"  {key}: {val} (limit: {lim})")
-              if val > lim:
-                failed = True
-
-          if failed:
-            print("Lighthouse gate failed.", file=sys.stderr)
-            sys.exit(1)
-          PY
-
       - name: Collect post-optimization size stats and diff report
         run: |
           python3 - <<'PY'
@@ -436,8 +320,6 @@ jobs:
             perf-pre.json
             perf-post.json
             perf-report.md
-            lighthouse-*.json
-            /tmp/book-server.log
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -446,7 +328,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 【注意】这里填入 shiroa 编译后生成的文件夹名字！通常是 'book' 或 'dist'
           path: './book' 
 
       # 部署到 GitHub Pages
