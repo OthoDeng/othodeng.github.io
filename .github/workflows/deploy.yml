@@ -302,7 +302,7 @@ jobs:
             exit 1
           fi
 
-          HEAVY_URL_PATH=$(python3 - <<'PY'
+          export HEAVY_URL_PATH=$(python3 - <<'PY'
           import os
           from pathlib import Path
           from urllib.parse import quote
@@ -321,8 +321,10 @@ jobs:
           fi
 
           idx=0
+          : > lighthouse-urls.txt
           for url in "${URLS[@]}"; do
             idx=$((idx+1))
+            printf '%s\t%s\n' "$idx" "$url" >> lighthouse-urls.txt
             # --no-sandbox is required for headless Chrome in GitHub-hosted Linux runners.
             lighthouse "$url" \
               --quiet \
@@ -334,7 +336,9 @@ jobs:
           python3 - <<'PY'
           import glob
           import json
+          import os
           import sys
+          from urllib.parse import urlparse
 
           DEFAULT_THRESHOLDS = {
             "largest-contentful-paint": 8000,
@@ -351,11 +355,21 @@ jobs:
           }
 
           failed = False
+          report_urls = {}
+          if os.path.exists("lighthouse-urls.txt"):
+            with open("lighthouse-urls.txt", "r", encoding="utf-8") as f:
+              for line in f:
+                idx, url = line.rstrip("\n").split("\t", 1)
+                report_urls[f"lighthouse-{idx}.json"] = url
+
+          heavy_path = os.environ.get("HEAVY_URL_PATH", "")
           for report in sorted(glob.glob("lighthouse-*.json")):
             with open(report, "r", encoding="utf-8") as f:
               data = json.load(f)
             audits = data.get("audits", {})
-            thresholds = HEAVY_PAGE_THRESHOLDS if report == "lighthouse-2.json" else DEFAULT_THRESHOLDS
+            report_url = report_urls.get(report) or data.get("finalDisplayedUrl") or data.get("finalUrl") or data.get("requestedUrl") or ""
+            report_path = urlparse(report_url).path if report_url else ""
+            thresholds = HEAVY_PAGE_THRESHOLDS if heavy_path and report_path == heavy_path else DEFAULT_THRESHOLDS
             print(f"== {report} ==")
             for key, lim in thresholds.items():
               val = audits.get(key, {}).get("numericValue")
