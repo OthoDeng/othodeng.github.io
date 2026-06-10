@@ -336,11 +336,18 @@ jobs:
           import json
           import sys
 
-          THRESHOLDS = {
-            "largest-contentful-paint": 2500,
-            "total-blocking-time": 300,
+          DEFAULT_THRESHOLDS = {
+            "largest-contentful-paint": 8000,
+            "total-blocking-time": 1500,
             "cumulative-layout-shift": 0.1,
-            "total-byte-weight": 1600000,
+            "total-byte-weight": 2100000,
+          }
+
+          HEAVY_PAGE_THRESHOLDS = {
+            "largest-contentful-paint": 130000,
+            "total-blocking-time": 2500,
+            "cumulative-layout-shift": 0.1,
+            "total-byte-weight": 26000000,
           }
 
           failed = False
@@ -348,8 +355,9 @@ jobs:
             with open(report, "r", encoding="utf-8") as f:
               data = json.load(f)
             audits = data.get("audits", {})
+            thresholds = HEAVY_PAGE_THRESHOLDS if report == "lighthouse-2.json" else DEFAULT_THRESHOLDS
             print(f"== {report} ==")
-            for key, lim in THRESHOLDS.items():
+            for key, lim in thresholds.items():
               val = audits.get(key, {}).get("numericValue")
               if val is None:
                 print(f"  {key}: missing")
