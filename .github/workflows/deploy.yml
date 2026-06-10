@@ -85,7 +85,9 @@ jobs:
 
       - name: Install optimization and audit tools
         run: |
-          npm install -g html-minifier-terser clean-css-cli terser lighthouse
+          mkdir -p /tmp/npm-tools
+          npm install --prefix /tmp/npm-tools html-minifier-terser clean-css-cli terser lighthouse
+          echo "/tmp/npm-tools/node_modules/.bin" >> "$GITHUB_PATH"
 
       - name: Install image optimization tools
         if: steps.changes.outputs.optimize_assets == 'true'
@@ -198,10 +200,8 @@ jobs:
               --remove-style-link-type-attributes \
               --minify-css true \
               --minify-js true \
-              --case-sensitive \
-              --input-dir "$(dirname "$f")" \
-              --output-dir "$(dirname "$f")" \
-              --file "$(basename "$f")" || true
+              --case-sensitive "$f" \
+              -o "$f" || true
           done
 
           find book -type f -name '*.css' -print0 | while IFS= read -r -d '' f; do
@@ -275,10 +275,26 @@ jobs:
 
       - name: Run Lighthouse gate (LCP/TBT/CLS/bytes)
         run: |
-          python3 -m http.server 4173 --directory book >/tmp/book-server.log 2>&1 &
+          PORT=$(python3 - <<'PY'
+          import socket
+          s = socket.socket()
+          s.bind(("127.0.0.1", 0))
+          print(s.getsockname()[1])
+          s.close()
+          PY
+          )
+
+          python3 -m http.server "$PORT" --directory book >/tmp/book-server.log 2>&1 &
           SERVER_PID=$!
-          trap 'kill $SERVER_PID' EXIT
-          sleep 2
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+
+          for _ in {1..10}; do
+            if curl -fsS "http://127.0.0.1:${PORT}/" >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS "http://127.0.0.1:${PORT}/" >/dev/null
 
           HEAVY_PAGE=$(find book -type f -name '*.html' -printf '%s %p\n' | sort -nr | awk 'NR==1 {print $2}')
           if [ -z "$HEAVY_PAGE" ]; then
@@ -297,16 +313,19 @@ jobs:
           )
 
           URLS=(
-            "http://127.0.0.1:4173/"
-            "http://127.0.0.1:4173/intro.html"
-            "http://127.0.0.1:4173${HEAVY_URL_PATH}"
+            "http://127.0.0.1:${PORT}/"
+            "http://127.0.0.1:${PORT}${HEAVY_URL_PATH}"
           )
+          if [ -f "book/intro.html" ]; then
+            URLS+=("http://127.0.0.1:${PORT}/intro.html")
+          fi
 
           idx=0
           for url in "${URLS[@]}"; do
             idx=$((idx+1))
             lighthouse "$url" \
               --quiet \
+              # --no-sandbox is required for headless Chrome in GitHub-hosted Linux runners.
               --chrome-flags="--headless=new --no-sandbox" \
               --output=json \
               --output-path="lighthouse-$idx.json" || exit 1
@@ -396,6 +415,7 @@ jobs:
             perf-post.json
             perf-report.md
             lighthouse-*.json
+            /tmp/book-server.log
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
