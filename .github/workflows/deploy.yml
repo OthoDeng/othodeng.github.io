@@ -49,9 +49,13 @@ jobs:
           curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.3.1-rc4/shiroa-x86_64-unknown-linux-gnu.tar.gz | tar -xvz --strip-components=1 -C shiroa-bin/
           chmod +x shiroa-bin/shiroa
 
+      - name: Setup patched Typst packages
+        run: |
+          mkdir -p ~/.cache/typst/packages/preview
+          cp -r packages/preview/dvdtyp ~/.cache/typst/packages/preview/
+          cp -r packages/preview/chem-par ~/.cache/typst/packages/preview/
+
       - name: Build Notes
-        env:
-          TYPST_PACKAGE_PATH: ./packages
         run: ./shiroa-bin/shiroa build --path-to-root / --font-path assets/fonts
 
       - name: Setup Pages
