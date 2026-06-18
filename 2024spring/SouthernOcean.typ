@@ -1,6 +1,6 @@
 #import "@preview/dvdtyp:1.0.1": *
 
-#set page(paper: "us-letter", margin: (left: 10mm, right: 10mm, top: 12mm, bottom: 15mm))
+// #set page(...) removed — page layout handled by book template
 
 // 群友黑魔法,控制首段缩进
 #let empty-par = par[#box()]

@@ -1,7 +1,121 @@
 // This is important for shiroa to produce a responsive layout
 // and multiple targets.
-#import "@preview/shiroa:0.1.2": get-page-width, target, is-web-target, is-pdf-target, plain-text, templates
-#import templates: *
+#import "@preview/shiroa:0.3.1": get-page-width, is-web-target, is-pdf-target, plain-text, x-target, shiroa-sys-target
+
+// --- Inlined from shiroa template-link.typ (not exported in v0.3.1) ---
+#let _make-unique-label(it, disambiguator: 1) = label({
+  let k = plain-text(it).trim()
+  if disambiguator > 1 {
+    k + "_d" + str(disambiguator)
+  } else {
+    k
+  }
+})
+
+#let _label-disambiguator = state("label-disambiguator", (:))
+#let _update-label-disambiguator(k) = _label-disambiguator.update(it => {
+  it.insert(k, it.at(k, default: 0) + 1)
+  it
+})
+#let _get-label-disambiguator(loc, k) = _make-unique-label(k, disambiguator: _label-disambiguator.at(loc).at(k))
+
+#let heading-hash(it, hash-color: blue) = {
+  let title = plain-text(it.body)
+  if title != none {
+    let title = title.trim()
+    _update-label-disambiguator(title)
+    context if shiroa-sys-target() == "paged" {
+      let loc = here()
+      let dest = _get-label-disambiguator(loc, title)
+      let h = measure(it.body).height
+      place(
+        left,
+        dx: -20pt,
+        [
+          #set text(fill: hash-color)
+          #link(loc)[\#] #dest
+        ],
+      )
+    } else {
+      let loc = here()
+      let dest = _get-label-disambiguator(loc, title)
+      html.elem(
+        "div",
+        attrs: (
+          role: "none",
+          style: "float: left; width: 0pt; position: relative; right: var(--heading-hash-offset-"
+            + str(it.level)
+            + ", 20px)",
+        ),
+      )[
+        #set text(fill: hash-color)
+        #html.elem(
+          "h" + str(it.level + 1),
+          attrs: (style: "display: inline;", class: "typst-content-link shiroa-heading-hash"),
+          [
+            #link(dest)[\#] #dest
+          ],
+        )
+      ]
+    }
+  }
+}
+
+// --- Inlined from shiroa template-theme.typ (not exported in v0.3.1) ---
+#let book-theme-from(preset, xml: xml, read: none, target: x-target) = {
+  let theme-target = if target.contains("-") {
+    target.split("-").at(1)
+  } else {
+    "light"
+  }
+  if theme-target == "wrapper" {
+    theme-target = "light"
+  }
+  let theme-style = preset.at(theme-target)
+
+  let is-dark-theme = theme-style.at("color-scheme") == "dark"
+  let is-light-theme = not is-dark-theme
+
+  let main-color = rgb(theme-style.at("main-color"))
+  let dash-color = rgb(theme-style.at("dash-color"))
+
+  let code-theme-file = theme-style.at("code-theme")
+
+  let code-extra-colors = if code-theme-file.len() > 0 {
+    if read != none {
+      theme-style.insert("code-theme", bytes(read(code-theme-file)))
+    }
+    let data = xml(theme-style.at("code-theme")).first()
+
+    let find-child(elem, tag) = {
+      elem.children.find(e => "tag" in e and e.tag == tag)
+    }
+
+    let find-kv(elem, key, tag) = {
+      let idx = elem.children.position(e => "tag" in e and e.tag == "key" and e.children.first() == key)
+      elem.children.slice(idx).find(e => "tag" in e and e.tag == tag)
+    }
+
+    let plist-dict = find-child(data, "dict")
+    let plist-array = find-child(plist-dict, "array")
+    let theme-setting = find-child(plist-array, "dict")
+    let theme-setting-items = find-kv(theme-setting, "settings", "dict")
+    let background-setting = find-kv(theme-setting-items, "background", "string")
+    let foreground-setting = find-kv(theme-setting-items, "foreground", "string")
+    (bg: rgb(background-setting.children.first()), fg: rgb(foreground-setting.children.first()))
+  } else {
+    (bg: rgb(239, 241, 243), fg: none)
+  }
+
+  (
+    style: theme-style,
+    is-dark: is-dark-theme,
+    is-light: is-light-theme,
+    main-color: main-color,
+    dash-color: dash-color,
+    code-extra-colors: code-extra-colors,
+  )
+}
 
 // Metadata
 #let page-width = get-page-width()
@@ -41,6 +155,23 @@
 #let heading-sizes = (26pt, 22pt, 14pt, 12pt, main-size)
 #let list-indent = 0.5em
 
+// Set page properties at top level for Typst 0.14+ compatibility
+#set page(
+  numbering: none,
+  number-align: center,
+  width: page-width,
+)
+
+#set page(
+  margin: (
+    top: 20pt,
+    left: 20pt,
+    bottom: 0.5em,
+    rest: 0pt,
+  ),
+  height: auto,
+) if is-web-target
+
 /// The project function defines how your document looks.
 /// It takes your content and some metadata and formats it.
 /// Go ahead and customize it to your liking!
@@ -53,27 +184,7 @@
   ) if not is-pdf-target
 
   // set web/pdf page properties
-  set page(
-    numbering: none,
-    number-align: center,
-    width: page-width,
-  )
-
-  // remove margins for web target
-  set page(
-    margin: (
-      // reserved beautiful top margin
-      top: 20pt,
-      // reserved for our heading style.
-      // If you apply a different heading style, you may remove it.
-      left: 20pt,
-      // Typst is setting the page's bottom to the baseline of the last line of text. So bad :(.
-      bottom: 0.5em,
-      // remove rest margins.
-      rest: 0pt,
-    ),
-    height: auto,
-  ) if is-web-target
+  // Note: set page() moved to top level for Typst 0.14+ compatibility
 
   // Set main text
   set text(

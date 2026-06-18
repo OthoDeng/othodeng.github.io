@@ -1,4 +1,4 @@
-#import "@preview/shiroa:0.1.2": *
+#import "@preview/shiroa:0.3.1": *
 
 #show: book
 
@@ -53,6 +53,4 @@
 #let book-page = project
 
 #build-meta(dest-dir: "book/")
-
-#get-book-meta()
 

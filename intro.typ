@@ -32,15 +32,7 @@ Supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Sc
 #link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/OttoQwQ")[Telegram]
 
 = Research Interests
-
-#rect(
-  radius: 5pt,
-  fill: rgb("#F5F5F5"),
-)[
-  #set text(size: 0.95em)
-
-  *Remote sensing* · *Land–Atmosphere Coupling* · *Climate Change Attribution* · *Drought Population Exposure* · *WRF Modeling* · *Deep Learning* · *Fluctuation Theorem & Non-equilibrium Statistical Physics* · *Numerical Weather Prediction*
-]
+  *Remote sensing* · *Land–Atmosphere Coupling* · *Extreme Events*
 
 = Publications
 
