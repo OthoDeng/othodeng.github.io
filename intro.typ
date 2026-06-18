@@ -9,7 +9,7 @@
   location: none,
   ) = {
   heading(level:1, name)
-  text(font: "New Computer Modern", style: "italic", date,)
+  text(font: "Libertinus Serif", style: "italic", date,)
   v(1pt)
   if entity != none {
     text(fill: luma(20%),style:"oblique", entity)
@@ -40,7 +40,7 @@ Supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Sc
   radius: 5pt,
   fill: rgb("#E3F2FD").lighten(50%),
 )[
-  #set text(font: "Times New Roman")
+  #set text(font: "Charter")
 
   [1] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). Global unequal exposure to intensifying hydrological droughts. _Journal of Hydrology_. (Major Revision)
   #text(size: 0.85em, fill: luma(40%))[Climate change contributed 64.5% to increased global drought population exposure.]

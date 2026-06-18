@@ -39,7 +39,7 @@
 
   set heading(numbering: "1.")
   show heading: it => {
-    set text(font: "Futura")
+    set text(font: "Charter")
     set par(first-line-indent: 0em)
 
     if it.numbering != none {
@@ -50,14 +50,14 @@
     it.body
   }
 
-  set text(font: "Futura", lang: "en")
+  set text(font: "Charter", lang: "en")
 
   show math.equation: set text(weight: 400)
 
 
   // Title row.
   align(center)[
-    #set text(font: "Futura")
+    #set text(font: "Charter")
     #block(text(weight: 700, 25pt, title))
     #v(0.4em, weak: true)
     #if subtitle != none [#text(18pt, weight: 500)[#subtitle]]
@@ -74,10 +74,10 @@
   show outline: set par(first-line-indent: 0em)
 
   show outline.entry.where(level: 1): it => {
-    text(font: "Futura", accent)[#strong[#it]]
+    text(font: "Charter", accent)[#strong[#it]]
   }
   show outline.entry: it => {
-    text(font: "Futura", accent)[#it]
+    text(font: "Charter", accent)[#it]
   }
 
 
@@ -91,10 +91,10 @@
 }
 
 #let thmtitle(t, color: rgb("#000000")) = {
-  text(font: "Futura", weight: "semibold", fill: color)[#t]
+  text(font: "Charter", weight: "semibold", fill: color)[#t]
 }
 #let thmname(t, color: rgb("#000000")) = {
-  text(font: "Futura", fill: color)[(#t)]
+  text(font: "Charter", fill: color)[(#t)]
 }
 
 #let thmtext(t, color: rgb("#000000")) = {
@@ -104,7 +104,7 @@
   }
   t = a.join()
 
-  text(font: "New Computer Modern", fill: color)[#t]
+  text(font: "Libertinus Serif", fill: color)[#t]
 }
 
 #let thmbase(

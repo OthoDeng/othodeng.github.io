@@ -64,7 +64,7 @@ $
 $
 Python 函数如下：
 #show raw: set par(leading: 0.7em)
-#show raw: set text(font:"New Computer Modern")
+#show raw: set text(font:"Libertinus Serif")
 ```python
 def ac(x, L):
     n = len(x)
