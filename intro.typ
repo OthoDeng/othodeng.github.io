@@ -25,9 +25,9 @@ I am *Otto (Kaihuai) Deng*, an undergraduate student in Atmospheric Science (Hyd
 
 My research centers on *satellite remote sensing of hydrological drought*, extending into *land–atmosphere coupling mechanisms* and *climate change impact attribution*. 
 
-I grew up in Guangzhou, a monsoon- and typhoon-prone region  this drives my motivation to use science to reduce harm and inform equitable decision-making.
+Supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Scholarship* ($<=$260 awardees nationwide), I am pursuing an 2026 internship at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada.
 
-Supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Scholarship* ($<=$260 awardees nationwide), I am pursuing an 2026 internship at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada).
+Selected for the *Tsinghua DESS 2026 National Outstanding Undergraduate Forum* (70 nationwide); presented 3D drought research in English. Discussed drought mechanisms, AI interpretability, and model coupling with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] (Tsinghua DESS), with whom I may be exploring remote collaboration opportunities over the summer.
 
 #link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/OttoQwQ")[Telegram]
 
