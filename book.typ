@@ -40,6 +40,7 @@
       - #chapter("2026spring/数值天气预报实习报告一.typ")[NWP Practice 1]
       - #chapter("2026spring/数值天气预报实习报告二.typ")[NWP Practice 2]
       - #chapter("2026spring/数值天气预报实习报告三.typ")[NWP Practice 3]
+      - #chapter("2026spring/数值天气预报实习报告四.typ")[NWP Practice 4]
 
     - #chapter("2026spring/水文气象模型.typ")[Hydrological and Meteorological Models]
 
