@@ -23,30 +23,34 @@
 
 I am *Otto (Kaihuai) Deng*, an undergraduate student in Atmospheric Science (Hydrometeorology) at _Nanjing University of Information Science and Technology_ (NUIST). My latest resume: #link("https://raw.githubusercontent.com/OthoDeng/othodeng.github.io/main/cv/CV_KaihuaiDeng.pdf")[CV_Kaihuai_Deng.pdf].
 
-My research centers on *satellite remote sensing of hydrological drought*, extending into *land–atmosphere coupling mechanisms* and *climate change impact attribution*. 
-
-Supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Scholarship* ($<=$260 awardees nationwide), I am pursuing an 2026 internship at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada.
-
-Selected for the *Tsinghua DESS 2026 National Outstanding Undergraduate Forum* (70 nationwide); presented 3D drought research in English. Discussed drought mechanisms, AI interpretability, and model coupling with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] (Tsinghua DESS), with whom I may be exploring remote collaboration opportunities over the summer.
+I grew up in Guangdong, a monsoon and typhoon prone region, this drives my motivation to use science to reduce harm and inform equitable decision-making.
 
 #link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/OttoQwQ")[Telegram]
 
+= Recent News
+1. I am pursuing an 2026 internship at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada, supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Scholarship* ($<=$260 awardees nationwide).
+
+2. Selected for the #link("https://www.dess.tsinghua.edu.cn/")[Tsinghua DESS] *2026 National Outstanding Undergraduate Forum* (70 nationwide), I presented my 3D drought research work in English. Discussed drought mechanisms, AI interpretability, and model coupling with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] (Tsinghua DESS), with whom I may be exploring remote collaboration opportunities over the summer.
+
+
+
 = Research Interests
-  *Remote sensing* · *Land–Atmosphere Coupling* · *Extreme Events*
+  *Remote Sensing* · *Land–Atmosphere Coupling* · *Extreme Events* · *WRF Modeling*
 
 = Publications
 
 #rect(
   radius: 5pt,
-  fill: rgb("#E3F2FD").lighten(50%),
+  // fill: blue.lighten(80%),
 )[
   #set text(font: "Charter")
 
-  [1] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). Global unequal exposure to intensifying hydrological droughts. _Journal of Hydrology_. (Major Revision)
-  #text(size: 0.85em, fill: luma(40%))[Climate change contributed 64.5% to increased global drought population exposure.]
+  [1] *Deng, K.*, Huang, Z.\*, (2026). Area expansion driven intensification and evaporative amplification of global drought. _Geophysical Research Letters_. (to be submitted as Letter)
+  #text(size: 0.85em, fill: luma(40%))[Identified 672 global events; Mechanism attribution reveal a regime shift from supply-deficit to compound droughts; Funded by 2026 Provincial Undergraduate Training Program on Innovation and Entrepreneurship (XJDC202610300604, PI)]
 
-  [2] *Deng, K.*, Huang, Z.\*, (2026). Intensifying global 3D terrestrial water storage drought under climate change. (_Geophysical Research Letters_, to be submitted as Letter)
-  #text(size: 0.85em, fill: luma(40%))[First 3D drought tracking applied to GRACE/GRACE-FO TWS; identified 672 global events; EEMD detrending + $C_E$ framework reveal a regime shift from supply-deficit to compound droughts. Funded by 2026 Provincial Undergraduate Training Program on Innovation and Entrepreneurship (XJDC202610300604, PI).]
+
+  [2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). Global unequal exposure to intensifying hydrological droughts. _Journal of Hydrology_. (Major Revision)
+  #text(size: 0.85em, fill: luma(40%))[Climate change contributed 64.5% to increased global drought population exposure.]
 
   [3] *Deng, K.\* * and Wang, J. (2024). A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean. _STECEP_. #link("../2024spring/SouthernOcean.html")[doi.org/10.61173/xnag2k18]
 ]
@@ -60,11 +64,11 @@ Selected for the *Tsinghua DESS 2026 National Outstanding Undergraduate Forum* (
   location: "Nanjing",
   date: "2025.09 – Present",
 )
-- Adapted and refined a 3D drought tracking algorithm (connected-component labeling + directional overlap tracking, originated from #link("https://www.linkedin.com/in/herreraestrada/")[Dr. Julio E. Herrera-Estrada]) for GRACE/GRACE-FO TWS data; tuned parameters for global-scale application
-- Applied EEMD + run theory to compute DSI; classified drought mechanisms via GMM of $C_E$
+- Adapted and refined a 3D drought tracking algorithm (connected-component labeling + directional overlap tracking, originated from #link("https://www.linkedin.com/in/herreraestrada/")[Dr. Herrera-Estrada]'s code) for GRACE/GRACE-FO TWS data; tuned parameters for global-scale application
 - Identified 672 global 3D drought events; analyzed trends in frequency, duration, intensity, and spatial migration
 - Revealed a systematic regime shift from precipitation-driven to evaporative-demand-amplified drought (14.8% of drought grid cells)
 - Transformed into 2026 Provincial Undergraduate Training Program on Innovation and Entrepreneurship (XJDC202610300604, provincial-level recommended, PI)
+- Presented at Tsinghua DESS 2026 National Outstanding Undergraduate Forum. Discussed drought mechanisms and AI interpretability with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] (Tsinghua DESS), exploring remote collaboration opportunities.
 
 #cv_block(
   name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
@@ -81,9 +85,20 @@ Selected for the *Tsinghua DESS 2026 National Outstanding Undergraduate Forum* (
   name: "WRF-based Precipitation Sensitivity (Jing–Jin–Ji Region)",
   entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
   location: "Nanjing",
-  date: "2025.03 – 2025.07",
+  date: "2025.07 – 2025.09",
 )
 - Configured WRF/WPS to investigate precipitation sensitivity to land surface perturbations over the Beijing–Tianjin–Hebei region
+
+#cv_block(
+  name: "Fluctuation Theorem & TCWV Asymmetry",
+  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST). Discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino)],
+  location: "Nanjing",
+  date: "2024.09 – 2025.09",
+)
+- Investigating time-reversal symmetry breaking in atmospheric TCWV using fluctuation theorem
+- Quantified PDF asymmetry $A_(a s y m)$ and tail rescaling across $tau = 1$–$20$ yr scales
+- SST–TCWV Clausius-Clapeyron scaling: $R^2 = 0.95$, CC rate ~7%/K
+
 
 #cv_block(
   name: "Precipitation–Runoff Prediction in the Yiluo River Basin",
@@ -97,20 +112,11 @@ Selected for the *Tsinghua DESS 2026 National Outstanding Undergraduate Forum* (
   name: "Contrasting SST Trends in the Southern Pacific",
   entity: [Supervised by #link("https://science.gsfc.nasa.gov/sci/bio/george.tselioudis")[Prof. George Tselioudis] (Columbia University)],
   location: "Beijing",
-  date: "2024.03 – 2025.09",
+  date: "2024.03 – 2024.09",
 )
 - Developed a conceptual model for the SST dipole pattern in the Southern Pacific
 - Published as first author in _STECEP_ (2024)
 
-#cv_block(
-  name: "Fluctuation Theorem & TCWV Asymmetry",
-  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST). Discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino)],
-  location: "Nanjing",
-  date: "2024.07 – Present",
-)
-- Investigating time-reversal symmetry breaking in atmospheric TCWV using fluctuation theorem
-- Quantified PDF asymmetry $A_(a s y m)$ and tail rescaling across $tau = 1$–$20$ yr scales
-- SST–TCWV Clausius-Clapeyron scaling: $R^2 = 0.95$, CC rate ~7%/K
 
 
 = Internship
