@@ -160,5 +160,18 @@ Kirchihoff公式
     1/2 integral_0^t integral^(x + a(t -tau))_(x - a(t -tau)) f(epsilon,tau)dif epsilon dif tau
   $
 
+*例：* $ cases(
+  (dif^2 u) / (dif t^2) - a^2 (dif^2 u) / (dif x^2) = sin x,
+  u |_ (t=0) = cos x \, u_t |_ (t=0) = x
+) $
 
-#figure(image("../pic/数理方程例题.png"))
+*解：* $ u_"II" (x, t) = cos a t cos x + x t $
+
+$ u_"III" (x, t) $
+$ = 1 / (2 a) integral_0^t integral_(x - a(t - tau))^(x + a(t - tau)) sin zeta d zeta d tau $
+$ = 1 / (2 a) integral_0^t [ cos(x - a(t - tau)) - cos(x + a(t - tau)) ] d tau $
+$ = 1 / a integral_0^t sin x sin a(t - tau) d tau = 1 / a^2 sin x [1 - cos a t] $
+
+#rect(fill: rgb("eef7fa"), width: 100%, inset: 8pt)[
+  $ u(x, t) = cos a t cos x + x t + 1 / a^2 sin x [1 - cos a t] $
+]
