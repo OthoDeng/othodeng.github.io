@@ -131,9 +131,10 @@ My research centers on *satellite remote sensing of hydrological drought*, exten
   location: "PEI, Canada",
   date: "2026.07 – 2026.10",
 )
-- Mitacs Globallink 
+- Fully funded by #link("https://www.mitacs.ca/")[Mitacs Globallink] and #link("https://www.csc.edu.cn/")[Chinese Government Scholarship (CSC)], I am currently conducting research on land–atmosphere coupling diagnostics and GRACE-based groundwater trend analysis for Prince Edward Island (PEI), Canada. EMAIL ME if you are interested in collaborating on this project.
+
 Potential research directions: 
-1. Land–atmosphere coupling diagnostics — comparing coupling metrics (e.g., soil moisture–precipitation feedback, convective triggering potential) between high-resolution regional simulations and coarser driving models; 
+1. Land–atmosphere coupling diagnostics. Comparing coupling metrics (e.g., soil moisture–precipitation feedback, convective triggering potential) between high-resolution regional simulations and coarser driving models; 
 2. GRACE-based groundwater trend analysis for PEI, comparing satellite TWS estimates with local well measurements to assess freshwater sustainability in a groundwater-dependent province.
 
 #cv_block(
