@@ -7,8 +7,8 @@
   birth: none,
   doc
 ) = {
-  set page(margin: (x: 40pt, y: 40pt))
-  set text(font: "New Computer Modern", size: 12pt)
+  set page(margin: (x: 32pt, y: 32pt))
+  set text(font: "New Computer Modern", size: 10.5pt)
 
   set document(
     title: "CV_en",
@@ -16,12 +16,13 @@
   )
 
   show link: underline
-  
+
   set align(center)
-  par(text(size: 18pt, weight: "bold", name))
-  v(8pt)
-  par(address)
-  par(stack(
+  text(size: 18pt, weight: "bold")[#name]
+  v(5pt)
+  text(address)
+  v(2pt)
+  stack(
     dir: ltr,
     spacing: 4pt,
     text(phone),
@@ -29,7 +30,7 @@
     link(blog),
     text("·"),
     link("mailto:" + email)
-  ))
+  )
   v(4pt)
 
   set align(start)
@@ -37,60 +38,62 @@
   show heading.where(
     level: 1
   ): it => {
-    set text(size: 14pt, weight: "bold")
     v(4pt)
-    align(left, smallcaps(it))
-    v(-10pt)
+    align(left, text(size: 12.5pt, weight: "bold", upper(it.body)))
+    v(-9pt)
     stack(
       dir: ltr,
       spacing: 4pt,
       line(length: 100%),
-//      line(length: 4pt),
-//      line(length: 4pt),
-//      line(length: 4pt),
- //     line(length: 4pt),
- //     line(length: 4pt),
     )
-    v(4pt)
+    v(3pt)
   }
-  show heading.where(//Heading style
+  show heading.where(
     level: 2
   ): it => {
-    box(text(size: 11pt, weight: "semibold", it, rgb("#1A237E")))
+    box(text(size: 10pt, weight: "semibold", it, rgb("#1A237E")))
   }
 
   doc
 }
-#let cv_block(//CV Content style
+#let cv_block(
   name: none,
   date: none,
   entity: none,
   description: none,
   location: none,
-  ) = par({
-  heading(level:2, name)
-    h(1fr)
-  text(style: "italic", date)
+) = {
+  grid(
+    columns: (1fr, auto),
+    column-gutter: 8pt,
+    heading(level: 2, name),
+    text(size: 9.5pt, style: "italic", date),
+  )
   v(1pt)
   if entity != none {
-    text(fill: luma(20%),style:"oblique", entity)
-    h(1fr)
-    text(fill: luma(20%),location) 
+    grid(
+      columns: (1fr, auto),
+      column-gutter: 8pt,
+      text(size: 9.5pt, fill: luma(20%), style: "oblique", entity),
+      text(size: 9.5pt, fill: luma(20%), location),
+    )
   }
-    text(fill: luma(12%),description)
-})
+  text(size: 9.5pt, fill: luma(12%), description)
+}
 
 #let award_block(
   name: none,
   date: none,
   entity: none,
-  ) = par({
-  heading(level:2, name)
-  text(". ")
-  text(fill: luma(20%),style:"oblique", entity)
-    h(1fr)
-  text(style: "italic", date)
-})
+) = {
+  grid(
+    columns: (auto, auto, 1fr, auto),
+    heading(level: 2, name),
+    text(". "),
+    text(size: 9.5pt, fill: luma(20%), style: "oblique", entity),
+    text(size: 9.5pt, style: "italic", date),
+  )
+}
 
 #let cv_link(
   url,
@@ -100,7 +103,7 @@
 
 #show: doc => conf(
   name: "KAIHUAI DENG",
-  address: "No.219, Ningliu Road, Nanjing, Jiangsu, China(Postcode: 210044)",
+  address: "No.219, Ningliu Road, Nanjing, Jiangsu, China (Postcode: 210044)",
   birth: "2005/01/20",
   phone: "(+86) 173-2700-6642",
   blog: "https://othodeng.github.io",
@@ -111,120 +114,150 @@
 = Education
 #cv_block(
   name: "Nanjing University of Information Science and Technology",
-  date: "Sep 2023 – Jul 2027 (expected)",
+  date: "2023.09 – 2027.07 (Expected)",
   description: [
-    - *B.S.* in Atmospheric Science, Hydrometereology division.
+    - *B.S.* in Atmospheric Science, Hydrometeorology division.
     - *Weighted average score*: 85.99 | *GPA*: 3.618.
   ],
 )
 
 = Area of Interest
-Extreme events · Flash droughts · Land–atmosphere coupling · WRF modeling
+Remote Sensing · Land–Atmosphere Coupling · Extreme Events · WRF Modeling
 
 = Publications
 
-[1] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). *Global unequal exposure to intensifying hydrological droughts.* _Journal of hydrology._ (Major Revision)
+[1] *Deng, K.*, Huang, Z.\*, (2026). *Area expansion driven intensification and evaporative amplification of global drought.* _Geophysical Research Letters._ (to be submitted as Letter)
 
-[2] *Deng, K.*, Huang, Z.\*, (2026). *Intensifying global 3D terrestrial water storage drought under climate change.* (To be submit)
+[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). *Global unequal exposure to intensifying hydrological droughts.* _Journal of Hydrology._ (Major Revision)
 
-[3] *Deng, K.*\* and Wang, J. (2024). *A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean*. _Science and Technology of Engineering, Chemistry, and Environmental Protection._ #link("https://doi.org/10.61173/xnag2k18","doi.org/10.61173/xnag2k18")
+[3] Wang, J.\* and *Deng, K.* (2024). *A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean*. _STECEP._ #link("https://doi.org/10.61173/xnag2k18","doi.org/10.61173/xnag2k18")
 
 = Research Experience
 #cv_block(
-  name: "Global Spatiotemporal Tracking of 3D Hydrological Drought & Exposure",
+  name: "Global 3D Hydrological Drought Tracking & Mechanism Attribution",
   entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
   location: "Nanjing",
   date: "2025.09 – Present",
   description: [
-    - Processed 22 years of GRACE/GRACE-FO satellite data via EEMD decomposition to calculate *Drought Severity Index(DSI)*.
-    - Engineered a 3D spatiotemporal *Python clustering algorithm* to track drought life-cycles, revealing anthropogenic climate change drives *64.5%* of worsening water-scarcity exposure.
+    - Applied *EEMD* to 23-year GRACE/GRACE-FO TWS, developed a *3D drought clustering algorithm*, identifying *672* discrete global drought events with topological splitting/merging.
+    - Constructed $C_E = E'\/(E'-P')$ evaporative contribution framework: *14.8%* of grid cells shifted from supply-deficit to compound droughts; area expansion drives *70–80%* of global severity increase ($p < 0.05$).
+    - Presented at *Tsinghua University DESS 2026 National Forum* (70 nationwide, English defense); Provincial Undergraduate Training Program on Innovation and Entrepreneurship (XJDC202610300604, PI).
   ]
 )
 
 #cv_block(
-  name: "WRF-based Precipitation Sensitivity Experiments (Jing–Jin–Ji Region)",
+  name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
+  entity: [Research assistant. Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
+  location: "Nanjing",
+  date: "2025.03 – 2025.09",
+  description: [
+    - Computed *DSI* from GRACE/GRACE-FO CSR RL06 v03 mascon TWS via EEMD; integrated GPW v4 population grids, decomposing exposure trends: climate *64.5%*, population *18.2%*, interaction *17.3%* (severe events: climate *76.1%*).
+    - Revealed *42.78 million people/yr* exposure increase concentrated in developing regions; most high-income regions showed stable/declining trends. Under *Major Revision* at _Journal of Hydrology_.
+  ]
+)
+
+#cv_block(
+  name: "Fluctuation Theorem & TCWV Asymmetry",
+  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST). Discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino)],
+  // location: "Nanjing",
+  date: "2024.09 – 2025.09",
+  description: [
+    - Extended nonequilibrium *fluctuation theorem* (Yin et al., 2024, _J. Climate_) from surface temperature to TCWV using ERA5; quantified PDF asymmetry $A_("asym")$ across $tau = 1–20$ yr smoothing timescales.
+    - Validated SST–TCWV Clausius-Clapeyron scaling ($R^2 = 0.95$, ~7%/K); migrated tail-rescaling framework to precipitation, demonstrating universality. Produced manuscript draft.
+  ]
+)
+#pagebreak()
+#cv_block(
+  name: "WRF-based Precipitation Sensitivity over Jing–Jin–Ji",
   entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
   location: "Nanjing",
   date: "2025.03 – 2025.07",
   description: [
-    - Executed precipitation modeling using *WRF/WPS* on Linux HPC clusters, modifying *cumulus and microphysics parameterizations* to evaluate surface boundary layer fluxes.
-    - Quantified model uncertainties to identify *optimal parameterization schemes*, minimizing biases in simulated precipitation and surface-atmosphere energy exchanges. 
+    - Configured *WRF/WPS* with 3 nested domains on Linux HPC; conducted *16 sensitivity experiments* perturbing soil moisture ($plus.minus 10%$ to $plus.minus 50%$) and urban LULC to simulate rapid regional urbanization.
+    - Evaluated precipitation responses via spatial correlation, RMSE, and threat scores; identified optimal cumulus and microphysics parameterization schemes minimizing simulated biases.
   ]
 )
-
 
 #cv_block(
   name: "Precipitation–Runoff Prediction in the Yiluo River Basin",
-  entity: [Research assistant. Supervised by #link("https://orcid.org/0000-0001-6983-7368")[Prof. Xin Yuan] (LabESM, CAS)],
+  entity: [Research assistant. Supervised by #link("https://orcid.org/0000-0001-6983-7368")[Prof. Xing Yuan] (LabESM, CAS)],
   location: "Nanjing",
   date: "2024.06 – 2025.03",
   description: [
-    - Analyzed historical hydrometeorological forcings (ERA5, CN05.1) utilizing *EOF decomposition* to extract dominant variability modes.
-    - Developed a *physical-statistical surface water routing model* to translate atmospheric boundary conditions into quantitative streamflow, constructing a robust *basin-scale runoff prediction framework*.
+    - Applied *EOF* to monthly precipitation interannual increments, extracting 3 PCs explaining *>90%* variance; screened key hydroclimatic predictors via correlation analysis and stepwise regression.
+    - Built *LSTM + interannual increment* hybrid model: TCC improved *16%*, RMSE reduced *20%* vs. statistical downscaling; CSSPv2 basin runoff forecasts achieved *NSE = 65%* for monthly streamflow.
   ]
 )
 
 #cv_block(
-  name: "A Model Explaining Contrasting SST Trends in the Southern Pacific",
-  entity: [Supervised by #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST) & #link("https://science.gsfc.nasa.gov/sci/bio/george.tselioudis")[Prof. George Tselioudis] (Columbia University)],
+  name: "Contrasting SST Trends in the Southern Pacific Ocean",
+  entity: [Student researcher. Supervised by #link("https://science.gsfc.nasa.gov/sci/bio/george.tselioudis")[Prof. George Tselioudis] (Columbia University / NASA GISS)],
   location: "Beijing",
-  date: "2024.03 – 2025.09",
+  date: "2024.03 – 2024.09",
   description: [
-    - Analyzed 64 years of *ERA5 reanalysis data* (1960–2024) via *nonequilibrium fluctuation* and *Linear response theory* to evaluate global temperature anomalies.
-    - Processed multi-decadal *SST data* to quantify Southern Pacific trends, proposing a *mechanism-based model* elucidating regional thermal behaviors based on *coupled sea–air–ice processes*.
+    - Analyzed *29-year multi-source satellite/reanalysis datasets* (Copernicus SST, DUACS SSH, CERES, NCEP, NSIDC SIC) to characterize SST trends across the Southern Pacific (80°W–180, 70°S–30°S).
+    - Derived *Ekman transport* ($U_E$, $V_E$, $W_E$) from wind stress to attribute the SST dipole; diagnosed a *sea ice radiative positive feedback* cycle. Published as co-first author in _STECEP_ (2024).
   ]
 )
+
 = Internship
 #cv_block(
-  name: "University of Prince Edward Island, Mitacs",
-  entity: [Research assistant. Supervised by #link("https://climatesmartlab.ca/team/xander-wang/")[Prof. Xander Wang] (Climate Smart Lab, UPEI)],
+  name: "Climate Smart Lab, University of Prince Edward Island",
+  entity: [Research Intern. Supervised by #link("https://climatesmartlab.ca/team/xander-wang/")[Prof. Xander Wang] (UPEI)],
   location: "PEI, Canada",
-  date: "2026.07 ~ 2026.10 (Expected)",
+  date: "2026.07 – 2026.10",
   description: [
-    - Conduct comprehensive *Climate Change and Health Vulnerability Assessment* for PEI across risk areas using baseline health data and socioeconomic determinants.
-    - Map climate-related health disparities for high-risk demographics to inform local *adaptation planning* and public health policy formulation.
+    - Fully funded by *Mitacs Globalink* and *Chinese Government Scholarship (CSC)* ($<=$260 awardees nationwide). Conducting land–atmosphere coupling diagnostics and *GRACE-based groundwater trend analysis* for PEI.
+    - Comparing satellite TWS estimates with local well measurements to assess freshwater sustainability in a groundwater-dependent province.
   ]
 )
 
 #cv_block(
-  name: "Leizhou Meteorological Bureau",
+  name: "Leizhou Meteorological Bureau, Guangdong",
   entity: [Intern, Forecasting Division, Guangdong Provincial Meteorological Observation],
   location: "Zhanjiang",
-  date: "2025.07 ~ 2025.08",
+  date: "2025.07 – 2025.08",
   description: [
-    - Executed real-time radar/satellite monitoring of severe weather (*Typhoons*) and conducted data QA/QC for regional station networks to support *disaster forecasting*.
-    - Calibrated and maintained field hydrologic equipment (groundwater wells, flux towers, snow sensors) utilizing *telemetry systems*, ensuring continuous high-fidelity environmental data collection.
+    - Participated in frontline monitoring/warning for *Typhoon Danas (2025)* and *Typhoon Wipha (2025)*, tracking intensification and landfall trajectories; conducted *multi-model NWP comparison* (ECMWF, CMA, NCEP, TRAMS).
+    - Calibrated field hydrologic equipment (groundwater wells, flux towers, snow sensors) utilizing telemetry systems, ensuring continuous environmental data collection for disaster forecasting.
   ]
 )
-
 
 = Selected Awards & Honors
 #award_block(
-  name:"Chinese Government Scholarship",
-  entity: "Selected for Mitacs research internship, CSC.",
-  date: "Jan 2026"
-  
+  name: "National Outstanding Undergraduate Forum",
+  entity: [Tsinghua University, DESS (70 nationwide)],
+  date: "Jun 2026"
 )
 #award_block(
-  name:"First‑Class Academic Scholarship",
-  entity: "Recognition for academic performance, NUIST",
+  name: "Chinese Government Scholarship",
+  entity: [Chinese Scholarship Council ($<=$260 awardees nationwide)],
+  date: "Jan 2026"
+)
+#award_block(
+  name: "Mitacs Globalink Scholarship",
+  entity: [Mitacs, Canadian national research organization],
+  date: "Jan 2026",
+)
+#award_block(
+  name: "Second‑Class Academic Scholarship",
+  entity: "Nanjing University of Information Science & Techonology",
   date: "Nov 2025"
 )
 #award_block(
-  name:"Second‑Class Academic Scholarship",
-  entity: "Recognition for academic performance, NUIST",
+  name: "Second‑Class Academic Scholarship",
+  entity: "Nanjing University of Information Science & Techonology",
   date: "Nov 2024"
 )
-
 #award_block(
   name: "Merit Student",
-  entity: "Recognition for all‑round excellence, NUIST",
+  entity: "Nanjing University of Information Science & Techonology",
   date: "Dec 2024"
 )
 
 = Additional Information
 
-- Programming: *Python*, Shell, Fortran, LaTeX, Typst.
-- Software: Linux (HPC), Git, *WRF*, Excel, Matlab, *Google Earth Engine*. 
-- Languages: English (IELTS overall 7.0), Chinese (native), French (A2, Duolingo).
-
+- *Programming:* Python (numpy, scipy, xarray, PyTorch), Shell, Fortran, MATLAB, Typst/LaTeX.
+- *Methods & Models:* EEMD, Clustering algorithm, EOF, GMM, LSTM, WRF/WPS, Xinanjiang (XAJ).
+- *Data & Tools:* GRACE/GRACE-FO, ERA5, GLDAS, Google Earth Engine, Linux (HPC), Git.
+- *Languages:* English (IELTS 7.0, C1), Chinese (Mandarin, Cantonese, Hokkien), French (A2).
