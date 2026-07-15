@@ -30,7 +30,7 @@ My research centers on *satellite remote sensing of hydrological drought*, exten
 = Recent News
 1. I am currently working as a short-term researcher at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada, supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Scholarship* ($<=$260 awardees nationwide). Kindly note that my timezone is in UTC-4 (Atlantic Standard Time). 
 
-2. Selected for the #link("https://www.dess.tsinghua.edu.cn/")[Tsinghua DESS] *2026 National Outstanding Undergraduate Forum* (70 nationwide), I presented my 3D drought research in English. Discussed drought mechanisms, AI interpretability, and model coupling with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] (Associate Chair & Professor, Tsinghua DESS), with whom I am exploring remote collaboration opportunities.
+2. Selected for the #link("https://www.dess.tsinghua.edu.cn/")[Tsinghua University Department of Earth System Sciences] *2026 National Outstanding Undergraduate Forum* (70 nationwide), I presented my 3D drought research in English. Discussed drought mechanisms, AI interpretability, and model coupling with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] (Associate Chair & Professor, Tsinghua DESS), with whom I am exploring remote collaboration opportunities.
 
 
 = Research Interests
