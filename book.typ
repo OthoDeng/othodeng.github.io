@@ -33,7 +33,15 @@
     - #chapter("2025spring/计算方法.typ")[Computational Methods]
 
     = 2025 Fall
-    - #chapter("2025fall/气象统计.typ")[Meteorological Statistics]
+    - #chapter("2025fall/气象统计实习报告一.typ")[Meteorological Statistics Practice 1]
+    - #chapter("2025fall/气象统计实习报告二.typ")[Meteorological Statistics Practice 2]
+    - #chapter("2025fall/气象统计实习报告三.typ")[Meteorological Statistics Practice 3]
+    - #chapter("2025fall/气象统计实习报告四.typ")[Meteorological Statistics Practice 4]
+    - #chapter("2025fall/气象统计实习报告五.typ")[Meteorological Statistics Practice 5]
+    - #chapter("2025fall/气象统计实习报告六.typ")[Meteorological Statistics Practice 6]
+    - #chapter("2025fall/气象统计实习报告七.typ")[Meteorological Statistics Practice 7]
+    - #chapter("2025fall/气象统计实习报告八.typ")[Meteorological Statistics Practice 8]
+    - #chapter("2025fall/气象统计实习报告九.typ")[Meteorological Statistics Practice 9]
     
     = 2026 Spring
     - #chapter("2026spring/数值天气预报.typ")[Numerical Weather Prediction]
