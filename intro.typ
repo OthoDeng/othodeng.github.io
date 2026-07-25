@@ -128,7 +128,7 @@ My research centers on *satellite remote sensing of hydrological drought*, exten
 #cv_block(
   name: "Climate Smart Lab, University of Prince Edward Island",
   entity: [Research Intern. Supervised by #link("https://climatesmartlab.ca/team/xander-wang/")[Prof. Xander Wang]],
-  location: "PEI, Canada",
+  location: "PE, Canada",
   date: "2026.07 – 2026.10",
 )
 - Fully funded by #link("https://www.mitacs.ca/")[Mitacs Globallink] and #link("https://www.csc.edu.cn/")[Chinese Government Scholarship (CSC)], I am currently conducting research on land–atmosphere coupling diagnostics and GRACE-based groundwater trend analysis for Prince Edward Island (PEI), Canada. EMAIL ME if you are interested in collaborating on this project.
@@ -152,9 +152,7 @@ Potential research directions:
 
 #rect(
   radius: 5pt,
-  fill: rgb("#F5F5F5"),
 )[
-  #set text(size: 0.95em)
 
   *Software:* Linux (HPC), Git, WRF, Excel, Matlab, Google Earth Engine.
 

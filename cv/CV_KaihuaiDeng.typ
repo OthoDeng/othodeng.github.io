@@ -117,7 +117,7 @@
   date: "2023.09 – 2027.07 (Expected)",
   description: [
     - *B.S.* in Atmospheric Science, Hydrometeorology division.
-    - *Weighted average score*: 85.99 | *GPA*: 3.618.
+    - *Weighted average score*: 85.5 | *GPA*: 3.6
   ],
 )
 
@@ -204,7 +204,7 @@ Remote Sensing · Land–Atmosphere Coupling · Extreme Events · WRF Modeling
 #cv_block(
   name: "Climate Smart Lab, University of Prince Edward Island",
   entity: [Research Intern. Supervised by #link("https://climatesmartlab.ca/team/xander-wang/")[Prof. Xander Wang] (UPEI)],
-  location: "PEI, Canada",
+  location: "PE, Canada",
   date: "2026.07 – 2026.10",
   description: [
     - Fully funded by *Mitacs Globalink* and *Chinese Government Scholarship (CSC)* ($<=$260 awardees nationwide). Conducting land–atmosphere coupling diagnostics and *GRACE-based groundwater trend analysis* for PEI.
