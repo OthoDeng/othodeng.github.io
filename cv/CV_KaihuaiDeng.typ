@@ -7,7 +7,7 @@
   birth: none,
   doc
 ) = {
-  set page(margin: (x: 20pt, y: 20pt))
+  set page(margin: (x: 17pt, y: 10pt))
   set text(font: "New Computer Modern", size: 10.5pt)
 
   set document(
@@ -40,7 +40,7 @@
   ): it => {
 
     v(4pt)
-    align(left, text(size: 10pt, weight: "bold", upper(it.body),navy))
+    align(left, text(size: 12pt, weight: "bold", upper(it.body),navy))
     v(-9pt)
     stack(
       dir: ltr,
@@ -52,7 +52,8 @@
   show heading.where(
     level: 2
   ): it => {
-    box(text(size: 10pt, weight: "semibold", it, rgb("#1A237E")))
+    // v(1.5pt)
+    box(text(size: 10.5pt, weight: "semibold", it, rgb("#1A237E")))
   }
 
   doc
@@ -68,18 +69,19 @@
     columns: (1fr, auto),
     column-gutter: 8pt,
     heading(level: 2, name),
-    text(size: 9.5pt, style: "italic", date),
+    text(size: 10.5pt, style: "italic", date),
   )
-  v(1pt)
+  v(1.5pt)
   if entity != none {
     grid(
       columns: (1fr, auto),
       column-gutter: 8pt,
-      text(size: 9.5pt, fill: luma(20%), style: "oblique", entity),
-      text(size: 9.5pt, fill: luma(20%), location),
+      text(size: 10.5pt, fill: luma(20%), style: "oblique", entity),
+      text(size: 10.5pt, fill: luma(20%), location),
     )
   }
-  text(size: 9.5pt, fill: luma(12%), description)
+  v(1pt)
+  text(size: 10pt, fill: luma(12%), description, spacing: 1.5pt)
 }
 
 #let award_block(
@@ -91,8 +93,8 @@
     columns: (auto, auto, 1fr, auto),
     heading(level: 2, name),
     text(": "),
-    text(size: 9.5pt, fill: luma(20%), style: "oblique", entity),
-    text(size: 9.5pt, style: "italic", date),
+    text(size: 10.5pt, fill: luma(20%), style: "oblique", entity),
+    text(size: 10.5pt, style: "italic", date),
   )
 }
 
@@ -122,7 +124,7 @@
 
     _NUIST ranked \#1 in China and \#8 globally for Atmospheric Sciences_
     - Weighted average score: 85.53/100 | GPA: 3.57/4.0 | Rank: 6/51 *(top 12%)*
-    - Research affiliate of the *Key Laboratory of Hydrometeorological Disaster Mechanism and Warning of Ministry of Water Resources* since freshman year.
+    - Research affiliate of the *NUIST Key Laboratory of Hydrometeorology* since freshman year.
     - Relevant coursework: Probability & Statistics (92), Remote Sensing for Hydrometeorology (94), Hydrometeorology Modeling (93), Numerical Weather Prediction (92), Python Programming (90).
 
   ],
@@ -142,7 +144,7 @@
 = Research Experience
 #cv_block(
   name: "Global 3D Hydrological Drought Tracking & Mechanism Attribution",
-  entity: [Independent research | Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
+  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
   location: "Nanjing",
   date: "Sept 2025 - Present",
   description: [
@@ -154,7 +156,7 @@
 
 #cv_block(
   name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
-  entity: [Research assistant | Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
+  entity: [Research assistant. Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
   location: "Nanjing",
   date: "Mar 2025 - Sept 2025",
   description: [
@@ -166,7 +168,7 @@
 
 #cv_block(
   name: "Fluctuation Theorem & TCWV Asymmetry",
-  entity: [Independent research | Supervised by #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST). Discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino)],
+  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST). Discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino)],
   // location: "Nanjing",
   date: "Sept 2024 - Sept 2025",
   description: [
@@ -177,7 +179,7 @@
 // #pagebreak()
 #cv_block(
   name: "WRF-based Precipitation Sensitivity over Jing–Jin–Ji",
-  entity: [Independent research | Supervised by #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
+  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
   location: "Nanjing",
   date: "Mar 2025 - Jul 2025",
   description: [
@@ -222,7 +224,7 @@
 
 #cv_block(
   name: "Leizhou Meteorological Bureau, Guangdong",
-  entity: [Intern, Forecasting Division, Guangdong Provincial Meteorological Observation],
+  entity: [Intern. Supervised by #link("http://www.leizhou.gov.cn/lztqyb/")[Leizhou Meteorological Bureau] (Guangdong)],
   location: "Zhanjiang",
   date: "Jul 2025 - Aug 2025",
   description: [
