@@ -17,6 +17,7 @@
     - #chapter("2024spring/RemoteSensing.typ")[Remote Sensing Quick Notes]
     - #chapter("2024spring/SouthernOcean.typ")[A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean]
     - #chapter("2025spring/GCA2.typ")[The 2nd GEOS-Chem Asia Meeting (GCA2)]
+    - #chapter("2026spring/DroughtTracking.typ")[Drought Tracking and Attribution]
 
     = 2024 Fall
     - #chapter("2024fall/流体力学上.typ")[Fluid Dynamics I]
