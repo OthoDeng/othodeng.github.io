@@ -21,11 +21,13 @@
 
 = About Me
 
-I am *Otto (Kaihuai) Deng*, an undergraduate student in Atmospheric Science (Hydrometeorology) at _Nanjing University of Information Science and Technology_ (NUIST). My latest resume: #link("https://raw.githubusercontent.com/OthoDeng/othodeng.github.io/main/cv/CV_KaihuaiDeng.pdf")[CV_Kaihuai_Deng.pdf].
+I am *Otto (Kaihuai) Deng*, an undergraduate student in Atmospheric Science (Hydrometeorology) at _Nanjing University of Information Science and Technology_ (NUIST). I am also a research affiliate of the #link("https://hymed.nuist.edu.cn/main.htm")[*Key Laboratory of Hydrometeorological Disaster Mechanism and Warning of Ministry of Water Resources*] since freshman year.
 
 My research centers on *satellite remote sensing of hydrological drought*, extending into *land–atmosphere coupling mechanisms* and *climate change impact attribution*. I grew up in Guangdong, a monsoon and typhoon-proned region, this drives my motivation to use science to reduce harm and inform equitable decision-making.
 
-#link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/AdolescentDelusions")[学术生活 Academic Life]
+My latest resume: #link("https://raw.githubusercontent.com/OthoDeng/othodeng.github.io/main/cv/CV_KaihuaiDeng.pdf")[CV_Kaihuai_Deng.pdf].
+
+#link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/AdolescentDelusions")[Academic Channel]
 
 = Recent News
 1. I am currently working as a short-term researcher at #link("https://climatesmartlab.ca/")[UPEI Climate Smart Lab], PEI, Canada, supported by the *Chinese Government Scholarship (CSC)* and *Mitacs Globalink Scholarship* ($<=$260 awardees nationwide). Kindly note that my timezone is in UTC-3 (Atlantic Daylight Time), 11 hours behind UTC+8 (China Standard Time).
@@ -43,7 +45,7 @@ My research centers on *satellite remote sensing of hydrological drought*, exten
 )[
   #set text(font: "Charter")
 
-  [1] *Deng, K.*, Huang, Z.\*, (2026). Area expansion driven intensification and evaporative amplification of global drought. _Geophysical Research Letters_. (to be submitted as Letter)
+  [1] *Deng, K.*, Huang, Z.\*, (2026). Area expansion dominates rising global three-dimensional terrestrial water storage drought severity. _Geophysical Research Letters_. (to be submitted as Letter)
   #text(size: 0.85em, fill: luma(40%))[First global 3D TWS drought tracking from GRACE/GRACE-FO; identified 672 events (2002–2025); Attribution framework reveals a regime shift from supply-deficit to compound droughts.]
 
   [2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). Global unequal exposure to intensifying hydrological droughts. _Journal of Hydrology_. (Major Revision)
