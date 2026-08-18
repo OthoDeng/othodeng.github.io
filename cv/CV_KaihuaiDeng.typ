@@ -121,6 +121,7 @@
   location: "Sept 2023 – Jul 2027 (Expected)",
   entity: [B.S. in Atmospheric Science (Hydrometeorology)],
   description: [
+    _NUIST ranked \#1 in China and \#8 globally for Atmospheric Sciences. (2026 Shanghai Ranking)_
     - Weighted average score: 85.53/100 | GPA: 3.57/4.0 | Class ranking: 6/51 *(top 12%)*
     - Research affiliate since 2023, Key Laboratory for Hydrometeorological Hazards, Ministry of Water Resources.
     - Relevant coursework: Probability & Statistics, Remote Sensing for Hydrometeorology, Hydrometeorology Modeling, Numerical Weather Prediction, Python Programming.
