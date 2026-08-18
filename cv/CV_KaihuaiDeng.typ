@@ -7,7 +7,7 @@
   birth: none,
   doc
 ) = {
-  set page(margin: (x: 17pt, y: 10pt))
+  set page(margin: (x: 20pt, y: 16pt))
   set text(font: "New Computer Modern", size: 10.5pt)
 
   set document(
@@ -121,25 +121,23 @@
   location: "Sept 2023 – Jul 2027 (Expected)",
   entity: [B.S. in Atmospheric Science (Hydrometeorology)],
   description: [
-
-    _NUIST ranks 1st in China and 8th globally for Atmospheric Sciences_
     - Weighted average score: 85.53/100 | GPA: 3.57/4.0 | Class ranking: 6/51 *(top 12%)*
-    - Research affiliate of the *Key Laboratory of Hydrometeorological Disaster Mechanism and Warning of the Ministry of Water Resources* in Nanjing University of Information Science and Technology since freshman year.
+    - Research affiliate since 2023, Key Laboratory for Hydrometeorological Hazards, Ministry of Water Resources.
     - Relevant coursework: Probability & Statistics, Remote Sensing for Hydrometeorology, Hydrometeorology Modeling, Numerical Weather Prediction, Python Programming.
 
   ],
 )
 
-= Area of Interest
-*Remote Sensing · Land–Atmosphere Coupling · Extreme Events · WRF Modeling*
+= Research Interests
+*Remote Sensing · Hydroclimate Extremes · Land–Atmosphere Interactions · Climate Risk Analysis*
 
-= Publications
+= Publications & Manuscripts
 
-[1] *Deng, K.*, Huang, Z.\*, (2026). *Area expansion dominates rising global three-dimensional terrestrial water storage drought severity* _Geophysical Research Letters._ (to be submitted as Letter)
+[1] *Deng, K.*, Huang, Z.\*, (2026). *Area expansion dominates rising global three-dimensional terrestrial water storage drought severity.* (Manuscript in preparation)
 
-[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). *Global unequal exposure to intensifying hydrological droughts.* _Journal of Hydrology._ (Minor Revision, R3)
+[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). *Global unequal exposure to intensifying hydrological droughts.* _Journal of Hydrology._ (Revised manuscript under review, R3 submitted)
 
-[3] Wang, J.\* and *Deng, K.* (2024). *A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean*. _STECEP._ #link("https://doi.org/10.61173/xnag2k18","doi.org/10.61173/xnag2k18")
+[3] Wang, J.\* and *Deng, K.* (2024). *A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean*. _STECEP._ #link("https://doi.org/10.61173/xnag2k18","https://doi.org/10.61173/xnag2k18")
 
 = Research Experience
 #cv_block(
@@ -154,13 +152,14 @@
 )
 #cv_block(
   name: "Global 3D Hydrological Drought Tracking & Mechanism Attribution",
-  entity: [Independent research. Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST). Discussed with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] (Tsinghua University)],
+  entity: [Independent research. Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST).],
   location: "",
   date: "Sept 2025 - Present",
   description: [
-    - Applied EEMD to 23-year GRACE/GRACE-FO TWS, developed a 3D drought clustering algorithm, identifying 672 discrete global drought events with topological splitting/merging.
-    - Constructed $C_E = E'\/(E'-P')$ evaporative contribution framework: 14.8% of grid cells shifted from supply-deficit to compound droughts; area expansion drives ~75\% of global severity increase ($p < 0.05$).
-    - Presented at Tsinghua University DESS 2026 National Forum (70 nationwide, English defense); Principal Investigator of the Provincial Undergraduate Training Program on Innovation and Entrepreneurship (XJDC202610300604).
+    - Developed a three-dimensional event-tracking framework for 23 years of GRACE/GRACE-FO terrestrial water storage observations, identifying 672 drought events and their splitting–merging lineages.
+    - Designed an evaporative contribution diagnostic to distinguish precipitation deficit and evapotranspiration influenced droughts and assess how spatial expansion contributes to increasing event severity.
+    - Principal Investigator of the Provincial Undergraduate Training Program on Innovation and Entrepreneurship.
+    - Refined the research design and extensions through discussions with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] at the 2026 Tsinghua DESS Forum.
   ]
 )
 
@@ -170,23 +169,23 @@
   location: "",
   date: "Jun 2025 - Aug 2026",
   description: [
-- Computed DSI from GRACE/GRACE-FO CSR RL06 v03 mascon TWS via EEMD with Matlab.
--Integrated GPW v4 population grids, decomposing exposure trends: climate 64.5%, population 18.2%, interaction 17.3% (severe events: climate 76.1%).
-- Revealed 42.78 million people/yr exposure increase concentrated in developing regions; most high-income regions showed stable/declining trends.
--	Wrote a paper as the first author and under minor revision at the _Journal of Hydrology_.
+- Applied EEMD to GRACE/GRACE-FO CSR RL06 mascon observations and derived event-based drought metrics.
+- Integrated GPW population grids to quantify a global increase of 38.76 million person-exposures yr⁻¹ and decomposed the increase into hydroclimatic conditions (73.2%), population growth (5.3%), and their interaction (21.5%).
+-	Led the complete research workflow, from study design and global data processing to manuscript preparation and responses to reviewers; revised manuscript under review at _Journal of Hydrology_ (R3 submitted).
 
 
   ]
 )
-
+// #pagebreak()
 #cv_block(
   name: "Fluctuation Theorem & TCWV Asymmetry",
-  entity: [Independent research. Advisor: #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST). Discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino)],
+  entity: [Independent research. Advisor: #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST).],
   // location: "Nanjing",
   date: "Sept 2024 - Sept 2025",
   description: [
     - Extended nonequilibrium fluctuation theorem (Yin et al., 2024, _J. Climate_) from surface temperature to TCWV using ERA5; quantified PDF asymmetry $A_("asym")$ across $tau = 1–20$ yr smoothing timescales.
     - Validated SST–TCWV Clausius-Clapeyron scaling ($R^2 = 0.95$, ~7%/K); migrated tail-rescaling framework to precipitation, demonstrating universality. Produced manuscript draft in Typst and LaTeX.
+    - Refined the theoretical interpretation and explored extensions to precipitation through research discussions with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino).
   ]
 )
 // #pagebreak()
@@ -203,12 +202,12 @@
 
 #cv_block(
   name: "Precipitation–Runoff Prediction in the Yiluo River Basin",
-  entity: [Research assistant. Advisor: #link("https://orcid.org/0000-0001-6983-7368")[Prof. Xing Yuan] (LabESM, Institute of Atmospheric Physics, CAS)],
+  entity: [Research assistant. Advisor: #link("https://orcid.org/0000-0001-6983-7368")[Prof. Xing Yuan] (Institute of Atmospheric Physics, Chinese Academy of Sciences)],
   location: "",
   date: "Jun 2024 - Mar 2025",
   description: [
     - Applied EOF to monthly precipitation interannual increments, extracting 3 PCs explaining >90% variance; screened key hydroclimatic predictors via correlation analysis and stepwise regression.
-    - Built BiLSTM + interannual increment hybrid model: TCC improved 16%, RMSE reduced 20% vs. statistical downscaling; CSSPv2 basin runoff forecasts achieved NSE = 65% for monthly streamflow.
+    - Built BiLSTM + interannual increment hybrid model: TCC improved 16%, RMSE reduced 20% vs. statistical downscaling; CSSPv2 basin runoff forecasts achieved NSE = 0.65 for monthly streamflow.
   ]
 )
 
@@ -219,7 +218,7 @@
   date: "Mar 2024 - Sep 2024",
   description: [
     - Used Python to analyze 29-year multi-source satellite/reanalysis datasets (Copernicus SST, DUACS SSH, CERES, NCEP, NSIDC SIC) to characterize SST trends across the Southern Pacific (80°W–180, 70°S–30°S).
-    - Derived Ekman transport ($U_E$, $V_E$, $W_E$) from wind stress to attribute the SST dipole; diagnosed a sea ice radiative positive feedback cycle. Published as co-first author in _STECEP_ (2024).
+    - Derived Ekman transport ($U_E$, $V_E$, $W_E$) from wind stress to attribute the SST dipole; diagnosed a sea ice radiative positive feedback cycle. Published as co-author in _STECEP_ (2024).
   ]
 )
 
@@ -237,6 +236,16 @@
 )
 
 = Selected Awards & Honors
+#award_block(
+  name: "Tsinghua DESS Forum for Outstanding Undergraduates",
+  entity: "Selected participant (70 nationwide)",
+  date: "Jun 2026"
+)
+#award_block(
+  name: "Provincial Undergraduate Innovation Program",
+  entity: "Principal Investigator (Provincial level project)",
+  date: "May 2026"
+)
 #award_block(
   name: "Chinese Government Scholarship",
   entity: [Chinese Scholarship Council ($<=$260 awardees nationwide)],
@@ -257,11 +266,6 @@
   entity: "NUIST (top 15%)",
   date: "Dec 2024"
 )
-#award_block(
-  name: "1st Place, Swimming Medley Relay",
-  entity: "NUIST (1/23, department level)",
-  date: "May 2025"
-)
 
 = Additional Information
 
@@ -270,26 +274,15 @@
   entity: "Python (5 yrs+), Shell Script (5 yrs+), Fortran (2 yrs), Typst/LaTeX (3 yrs)"
 )
 #award_block(
-  name: "Certificates",
-  entity: "MIT Deep Learning Lecture Certificate"
-)
-#award_block(
   name: "Tools",
-  entity: "Google Earth Engine, Linux (HPC), Git, WRF, MATLAB"
+  entity: "Google Earth Engine, Linux (HPC), Git, WRF, MATLAB, TensorFlow, PyTorch, ArcGIS"
 )
 #award_block(
   name: "Languages",
-  entity: "English (Academic Proficiency), Chinese (Mandarin, Cantonese), French (A2)"
+  entity: "English (C1, Academic Proficiency), Chinese (Mandarin, Cantonese), French (A2)"
 )
 
-#heading(level: 2, "Activities:")
-  - #grid(
-    columns: (auto, 1fr, auto),
-    "Oral presentation in English, National Forum for Outstanding Undergraduates. ",
-
-    "DESS, Tsinghua University",
-    "Jun 2026"
-  )              
-  - Maintains a public academic website (#cv_link("othodeng.github.io")) sharing study notes from 10+ courses.
-  - 10-year swimming training.
-  
+#award_block(
+  name: "Activities",
+  entity: [Competitive swimmer for 10 years; first place in the NUIST departmental medley relay (2025). Maintains a public academic website (#cv_link("othodeng.github.io")) sharing study notes from 10+ courses.],
+)
