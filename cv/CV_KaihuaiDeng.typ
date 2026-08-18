@@ -69,19 +69,19 @@
     columns: (1fr, auto),
     column-gutter: 8pt,
     heading(level: 2, name),
-    text(size: 10.5pt, style: "italic", date),
+    text(size: 10.5pt, style: "italic", date, weight: "bold"),
   )
   v(1.5pt)
   if entity != none {
     grid(
       columns: (1fr, auto),
       column-gutter: 8pt,
-      text(size: 10.5pt, fill: luma(20%), style: "oblique", entity),
-      text(size: 10.5pt, fill: luma(20%), location),
+      text(size: 10.5pt, fill: luma(20%), style: "oblique", entity,spacing: 3pt),
+      text(size: 10.5pt, fill: luma(20%),location, style: "oblique", weight:"bold"),
     )
   }
   v(1pt)
-  text(size: 10pt, fill: luma(12%), description, spacing: 1.5pt)
+  text(size: 10pt, fill: luma(12%), description, spacing: 2.5pt)
 }
 
 #let award_block(
@@ -117,15 +117,15 @@
 = Education
 #cv_block(
   name: "Nanjing University of Information Science and Technology",
-  date: "Sept 2023 – Jul 2027 (Expected)",
-  location: "Nanjing, China",
+  date: "Nanjing, China",
+  location: "Sept 2023 – Jul 2027 (Expected)",
   entity: [B.S. in Atmospheric Science (Hydrometeorology)],
   description: [
 
-    _NUIST ranked \#1 in China and \#8 globally for Atmospheric Sciences_
-    - Weighted average score: 85.53/100 | GPA: 3.57/4.0 | Rank: 6/51 *(top 12%)*
-    - Research affiliate of the *NUIST Key Laboratory of Hydrometeorology* since freshman year.
-    - Relevant coursework: Probability & Statistics (92), Remote Sensing for Hydrometeorology (94), Hydrometeorology Modeling (93), Numerical Weather Prediction (92), Python Programming (90).
+    _NUIST ranks 1st in China and 8th globally for Atmospheric Sciences_
+    - Weighted average score: 85.53/100 | GPA: 3.57/4.0 | Class ranking: 6/51 *(top 12%)*
+    - Research affiliate of the *Key Laboratory of Hydrometeorological Disaster Mechanism and Warning of the Ministry of Water Resources* in Nanjing University of Information Science and Technology since freshman year.
+    - Relevant coursework: Probability & Statistics, Remote Sensing for Hydrometeorology, Hydrometeorology Modeling, Numerical Weather Prediction, Python Programming.
 
   ],
 )
@@ -137,15 +137,25 @@
 
 [1] *Deng, K.*, Huang, Z.\*, (2026). *Area expansion dominates rising global three-dimensional terrestrial water storage drought severity* _Geophysical Research Letters._ (to be submitted as Letter)
 
-[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). *Global unequal exposure to intensifying hydrological droughts.* _Journal of Hydrology._ (Major Revision, R2)
+[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J., (2026). *Global unequal exposure to intensifying hydrological droughts.* _Journal of Hydrology._ (Minor Revision, R3)
 
 [3] Wang, J.\* and *Deng, K.* (2024). *A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean*. _STECEP._ #link("https://doi.org/10.61173/xnag2k18","doi.org/10.61173/xnag2k18")
 
 = Research Experience
 #cv_block(
+  name: "Mitacs Globalink Research",
+  entity: [Research Intern. Advisor: #link("https://climatesmartlab.ca/team/xander-wang/")[Prof. Xander Wang] (University of Prince Edward Island)],
+  location: "Jul 2026 - Present",
+  date: "Charlottetown, PE, Canada",
+  description: [
+    - Fully funded by Mitacs Globalink and Chinese Government Scholarship (CSC) ($<=$260 awardees nationwide). Conducting land–atmosphere coupling diagnostics and GRACE-based groundwater trend analysis for Prince Edward Island.
+    - Comparing satellite TWS estimates with local well measurements to assess freshwater sustainability in PEI.
+  ]
+)
+#cv_block(
   name: "Global 3D Hydrological Drought Tracking & Mechanism Attribution",
-  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
-  location: "Nanjing",
+  entity: [Independent research. Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST). Discussed with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu] (Tsinghua University)],
+  location: "",
   date: "Sept 2025 - Present",
   description: [
     - Applied EEMD to 23-year GRACE/GRACE-FO TWS, developed a 3D drought clustering algorithm, identifying 672 discrete global drought events with topological splitting/merging.
@@ -156,19 +166,22 @@
 
 #cv_block(
   name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
-  entity: [Research assistant. Supervised by #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
-  location: "Nanjing",
-  date: "Mar 2025 - Sept 2025",
+  entity: [Research assistant. Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
+  location: "",
+  date: "Jun 2025 - Aug 2026",
   description: [
-- Computed DSI from GRACE/GRACE-FO CSR RL06 v03 mascon TWS via EEMD; integrated GPW v4 population grids, decomposing exposure trends: climate 64.5%, population 18.2%, interaction 17.3% (severe events: climate 76.1%).
-- Revealed 42.78 million people/yr exposure increase concentrated in developing regions; most high-income regions showed stable/declining trends. Completed R2 revision responding to 6 reviewer comments with 5 supplementary sensitivity analyses. Under Major Revision at _Journal of Hydrology_.
+- Computed DSI from GRACE/GRACE-FO CSR RL06 v03 mascon TWS via EEMD with Matlab.
+-Integrated GPW v4 population grids, decomposing exposure trends: climate 64.5%, population 18.2%, interaction 17.3% (severe events: climate 76.1%).
+- Revealed 42.78 million people/yr exposure increase concentrated in developing regions; most high-income regions showed stable/declining trends.
+-	Wrote a paper as the first author and under minor revision at the _Journal of Hydrology_.
+
 
   ]
 )
 
 #cv_block(
   name: "Fluctuation Theorem & TCWV Asymmetry",
-  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST). Discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino)],
+  entity: [Independent research. Advisor: #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST). Discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino)],
   // location: "Nanjing",
   date: "Sept 2024 - Sept 2025",
   description: [
@@ -179,8 +192,8 @@
 // #pagebreak()
 #cv_block(
   name: "WRF-based Precipitation Sensitivity over Jing–Jin–Ji",
-  entity: [Independent research. Supervised by #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
-  location: "Nanjing",
+  entity: [Independent research. Advisor: #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
+  location: "",
   date: "Mar 2025 - Jul 2025",
   description: [
     - Configured WRF/WPS with 3 nested domains on Linux HPC; conducted 16 sensitivity experiments perturbing soil moisture ($plus.minus 10%$ to $plus.minus 50%$) and urban LULC to simulate rapid regional urbanization.
@@ -190,8 +203,8 @@
 
 #cv_block(
   name: "Precipitation–Runoff Prediction in the Yiluo River Basin",
-  entity: [Research assistant. Supervised by #link("https://orcid.org/0000-0001-6983-7368")[Prof. Xing Yuan] (LabESM, CAS)],
-  location: "Nanjing",
+  entity: [Research assistant. Advisor: #link("https://orcid.org/0000-0001-6983-7368")[Prof. Xing Yuan] (LabESM, Institute of Atmospheric Physics, CAS)],
+  location: "",
   date: "Jun 2024 - Mar 2025",
   description: [
     - Applied EOF to monthly precipitation interannual increments, extracting 3 PCs explaining >90% variance; screened key hydroclimatic predictors via correlation analysis and stepwise regression.
@@ -201,31 +214,21 @@
 
 #cv_block(
   name: "Contrasting SST Trends in the Southern Pacific Ocean",
-  entity: [Student researcher. Supervised by #link("https://science.gsfc.nasa.gov/sci/bio/george.tselioudis")[Prof. George Tselioudis] (Columbia University / NASA GISS)],
-  location: "Beijing",
+  entity: [Student researcher. Advisor: #link("https://science.gsfc.nasa.gov/sci/bio/george.tselioudis")[Prof. George Tselioudis] (Columbia University / NASA GISS)],
+  location: "",
   date: "Mar 2024 - Sep 2024",
   description: [
-    - Analyzed 29-year multi-source satellite/reanalysis datasets (Copernicus SST, DUACS SSH, CERES, NCEP, NSIDC SIC) to characterize SST trends across the Southern Pacific (80°W–180, 70°S–30°S).
+    - Used Python to analyze 29-year multi-source satellite/reanalysis datasets (Copernicus SST, DUACS SSH, CERES, NCEP, NSIDC SIC) to characterize SST trends across the Southern Pacific (80°W–180, 70°S–30°S).
     - Derived Ekman transport ($U_E$, $V_E$, $W_E$) from wind stress to attribute the SST dipole; diagnosed a sea ice radiative positive feedback cycle. Published as co-first author in _STECEP_ (2024).
   ]
 )
 
 = Internship
-#cv_block(
-  name: "Climate Smart Lab, University of Prince Edward Island",
-  entity: [Research Intern. Supervised by #link("https://climatesmartlab.ca/team/xander-wang/")[Prof. Xander Wang] (UPEI)],
-  location: "PE, Canada",
-  date: "Jul 2026 - Oct 2026",
-  description: [
-    - Fully funded by Mitacs Globalink and Chinese Government Scholarship (CSC) ($<=$260 awardees nationwide). Conducting land–atmosphere coupling diagnostics and GRACE-based groundwater trend analysis for Prince Edward Island.
-    - Comparing satellite TWS estimates with local well measurements to assess freshwater sustainability in a groundwater-dependent province.
-  ]
-)
 
 #cv_block(
   name: "Leizhou Meteorological Bureau, Guangdong",
-  entity: [Intern. Supervised by #link("http://www.leizhou.gov.cn/lztqyb/")[Leizhou Meteorological Bureau] (Guangdong)],
-  location: "Zhanjiang",
+  entity: [Intern. Forecast Division, #link("http://www.leizhou.gov.cn/lztqyb/")[Leizhou Meteorological Bureau] (Guangdong)],
+  location: "Zhanjiang, Guangdong",
   date: "Jul 2025 - Aug 2025",
   description: [
     - Participated in frontline monitoring/warning for Typhoon Danas (2025) and Typhoon Wipha (2025), tracking intensification and landfall trajectories; conducted multi-model NWP comparison (ECMWF, CMA, NCEP, TRAMS).
