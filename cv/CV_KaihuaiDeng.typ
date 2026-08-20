@@ -275,7 +275,7 @@
 )
 #award_block(
   name: "Languages",
-  entity: "Chinese (native), English (proficient), French (basic)"
+  entity: "Mandarin (native), Cantonese (native), English (proficient), French (basic)"
 )
 
 #award_block(
