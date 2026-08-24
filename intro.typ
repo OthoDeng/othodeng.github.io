@@ -47,8 +47,9 @@ My #link("https://raw.githubusercontent.com/OthoDeng/othodeng.github.io/main/cv/
 #link("mailto:kaihuaideng@nuist.edu.cn")[kaihuaideng\[at\]nuist.edu.cn] · #link("https://github.com/OthoDeng")[GitHub] · #link("https://OttoQwQ.me")[Blog] · #link("https://t.me/AdolescentDelusions")[Academic Channel]
 
 = Current Focus & Recent News
+- *December 2026:* (Probable) I may present my first-author research on global drought  tracking at the #link("https://www.agu.org/annual-meeting")[AGU Fall Meeting 2026] in San Francisco, California, USA. Potential in-person meetings are welcome;)
 
-- *July 2026 – present:* Research intern at the #link("https://climatesmartlab.ca/")[Climate Smart Lab], University of Prince Edward Island, supported by the joint CSC–Mitacs Globalink program. I am working on land–atmosphere coupling diagnostics and GRACE-based groundwater trend analysis for Prince Edward Island.
+- *July 2026 - present:* Research intern at the #link("https://climatesmartlab.ca/")[Climate Smart Lab], University of Prince Edward Island (UPEI), Canada supported by the joint #link("https://www.mitacs.ca/our-programs/globalink-research-internship/")[CSC-Mitacs Globalink program]. I am working on land-atmosphere coupling diagnostics and GRACE-based groundwater trend analysis for Prince Edward Island.
 - *August 2026:* Submitted the R3 revision of my first-author manuscript, _Global unequal exposure to intensifying hydrological droughts_, to _Journal of Hydrology_. The revised manuscript is currently under review.
 - *June 2026:* Selected for the #link("https://www.dess.tsinghua.edu.cn/")[Tsinghua DESS Forum for Outstanding Undergraduates] (70 participants nationwide), where I presented my 3D drought research in English and discussed its design and extensions with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu].
 
