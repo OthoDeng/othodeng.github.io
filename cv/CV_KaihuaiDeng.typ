@@ -141,7 +141,7 @@
   location: "",
   date: "Sep 2025 - Present",
   description: [
-    - Developed a three-dimensional event-tracking framework for 23 years of GRACE/GRACE-FO terrestrial water storage observations, identifying 672 drought events and reconstructing their splitting–merging lineages.
+    - Developed a three-dimensional event-tracking framework for 23 years of GRACE/GRACE-FO terrestrial water storage observations, identifying 672 drought events and reconstructing their splitting-merging lineages.
     - Designed an evaporative-contribution diagnostic to separate precipitation-deficit and evapotranspiration-related influences and quantify how spatial expansion contributes to increasing event severity.
     - Principal Investigator of a Provincial Undergraduate Training Program on Innovation and Entrepreneurship.
   ],
