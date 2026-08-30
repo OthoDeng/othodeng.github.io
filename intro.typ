@@ -35,10 +35,10 @@
 
 = About Me
 
-I am *Otto (Kaihuai) Deng*, an Atmospheric Science (Hydrometeorology) undergraduate at _Nanjing University of Information Science and Technology_ (NUIST), graduating in July 2027. Since 2023, I have conducted research at the #link("https://hymed.nuist.edu.cn/main.htm")[*Key Laboratory for Hydrometeorological Hazards, Ministry of Water Resources*].
+I am *Otto (Kaihuai) Deng*, an Atmospheric Science (Hydrometeorology) undergraduate at _Nanjing University of Information Science and Technology_ (NUIST), graduating in July 2027. Since 2023, I have conducted research at the #link("https://hymed.nuist.edu.cn/main.htm")[*Key Laboratory of Hydrometeorological Disaster Mechanism and Warning of Ministry of Water Resources*].
 
 
-#quote[Growing up in typhoon- and flood-prone Guangdong motivates me to connect physical climate science with decisions that reduce harm.]
+#quote[Growing up in typhoon and flood prone Guangdong motivates me to connect physical climate science with decisions that reduce harm.]
 
 I use satellite observations, reanalysis, and numerical models to study *hydroclimate extremes*, focusing on drought evolution, land-atmosphere interactions, and unequal climate risks.
 
