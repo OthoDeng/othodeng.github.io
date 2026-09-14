@@ -137,7 +137,7 @@
 
 #cv_block(
   name: "Global 3D Hydrological Drought Tracking & Mechanism Attribution",
-  entity: [Independent research _|_ Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
+  entity: [Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
   location: "",
   date: "Sep 2025 - Present",
   description: [
@@ -161,7 +161,7 @@
 
 #cv_block(
   name: "Fluctuation Theorem & TCWV Asymmetry",
-  entity: [Independent research _|_ Advisor: #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST)],
+  entity: [Advisor: #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST)],
   location: "",
   date: "Sep 2024 - Sep 2025",
   description: [
@@ -172,7 +172,7 @@
 
 #cv_block(
   name: "WRF-based Precipitation Sensitivity over Jing-Jin-Ji",
-  entity: [Independent research _|_ Advisor: #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
+  entity: [Advisor: #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
   location: "",
   date: "Mar 2025 - Jul 2025",
   description: [
@@ -223,7 +223,7 @@
 )
 #award_block(
   name: "Mitacs Globalink Research Internship Award",
-  entity: [CSC–Mitacs Joint Program (≤260 awardees nationwide)],
+  entity: [CSC-Mitacs Joint Program (≤260 awardees nationwide)],
   date: "Jan 2026",
 )
 #award_block(
