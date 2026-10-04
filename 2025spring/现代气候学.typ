@@ -1,5 +1,5 @@
 #import "../book.typ": book-page
-#import "@preview/dvdtyp:1.0.1": *
+#import "/packages/preview/dvdtyp/1.0.1/dvd.typ": *
 #show: book-page.with(title: "现代气候学")
 
 
@@ -239,4 +239,3 @@ $
   4 pi r^2 sigma T^4
 $
 一般情况$alpha_s =0.3$ 有$T_e = 254.6K$
-

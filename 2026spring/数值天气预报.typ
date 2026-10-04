@@ -1,5 +1,5 @@
 #import "../book.typ": book-page
-#import "@preview/dvdtyp:1.0.1": *
+#import "/packages/preview/dvdtyp/1.0.1/dvd.typ": *
 #show: book-page.with(title: "数值天气预报")
 
 #show: dvdtyp.with(

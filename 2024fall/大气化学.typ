@@ -1,5 +1,5 @@
 #import "../book.typ": book-page
-#import "@preview/chem-par:0.0.1": *
+#import "/packages/preview/chem-par/0.0.1/src/lib.typ": *
 
 
 #show: book-page.with(title: "大气化学")
@@ -279,4 +279,3 @@ O + O2 + M $->$ O3 + M
 O3 + $h nu ->$ O2 + O(1D)
 
 O(1D) + M $->$ M + O(3P) 
-

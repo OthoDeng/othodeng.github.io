@@ -3,3 +3,5 @@ book/
 *.ttf 
 *.otf
 shiroa
+.build-check/
+shiroa-bin/

@@ -1,4 +1,4 @@
-#import "@preview/dvdtyp:1.0.1": *
+#import "/packages/preview/dvdtyp/1.0.1/dvd.typ": *
 
 // #set page(...) removed — page layout handled by book template
 

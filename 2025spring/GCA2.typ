@@ -1,5 +1,5 @@
 #import "../book.typ": book-page
-#import "@preview/dvdtyp:1.0.1": *
+#import "/packages/preview/dvdtyp/1.0.1/dvd.typ": *
 #show: book-page.with(title: "GCA2")
 
 #show: dvdtyp.with(
@@ -141,4 +141,4 @@ Build the Environment with Spack(simiilar to conda)
 + 
 
 
-= Running GC within CESM 
+= Running GC within CESM

@@ -1,4 +1,4 @@
-#import "@preview/dvdtyp:1.0.1": *
+#import "/packages/preview/dvdtyp/1.0.1/dvd.typ": *
 #import "../book.typ": book-page
 #show: book-page.with(title: "Remote Sensing")
 
@@ -251,4 +251,3 @@ Further modeling studies are needed to fully understand ...
 
 == References
 Do follow the citation standard.
-

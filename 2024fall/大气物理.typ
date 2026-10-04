@@ -1,5 +1,5 @@
 #import "../book.typ": book-page
-#import "@preview/dvdtyp:1.0.1": *
+#import "/packages/preview/dvdtyp/1.0.1/dvd.typ": *
 
 #show: book-page.with(title: "大气物理")
 
@@ -385,4 +385,3 @@ $
 
 7. 气层平均温度和等压面间的厚度
 黄色圆点的数值表示标准等压面之间的厚度，单位为10 gpm（位势十米）。
-

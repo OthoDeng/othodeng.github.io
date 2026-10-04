@@ -1,5 +1,5 @@
 #import "../book.typ": book-page
-#import "@preview/dvdtyp:1.0.1": *
+#import "/packages/preview/dvdtyp/1.0.1/dvd.typ": *
 #show: book-page.with(title: "天气学原理")
 
 #show: dvdtyp.with(
@@ -679,4 +679,3 @@ $
 + 当风穿越等压线时气压梯度力对空气做功，改变空气动能，促使风速变化
 
 + 造成垂直运动的重要原因，进而产生天气
-

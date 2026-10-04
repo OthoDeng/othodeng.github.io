@@ -10,14 +10,14 @@ Visit [shiroa]("https://github.com/Myriad-Dreamin/shiroa") for instructions on i
 
 To serve the notes locally, run the following command in the root directory of the repository:
 ```bash
-shiroa serve
+./shiroa serve --font-path assets/fonts
 ```
 
 To build the notes, run the following command in the root directory of the repository:
 ```bash
-shiroa build
+bash scripts/build.sh
 ```
-You may costumize the output directory in `book.typ`.
+The build script downloads the required fonts and runs `./shiroa build`. Documents import the patched Typst packages directly from this repository. GitHub Pages uses the same script with the Linux binary. Run the build script before serving locally.
 
 
 # Acknowledgement

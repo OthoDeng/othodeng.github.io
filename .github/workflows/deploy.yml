@@ -29,12 +29,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Download font assets
-        run: |
-          mkdir -p assets/fonts
-          curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.1.0/charter-font-assets.tar.gz | tar -xvz -C assets/fonts/
-          curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.1.5/source-han-serif-font-assets.tar.gz | tar -xvz -C assets/fonts/
-
       - name: Cache Shiroa binary
         id: cache-shiroa
         uses: actions/cache@v4
@@ -46,17 +40,12 @@ jobs:
         if: steps.cache-shiroa.outputs.cache-hit != 'true'
         run: |
           mkdir -p shiroa-bin
-          curl -L https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.3.1-rc4/shiroa-x86_64-unknown-linux-gnu.tar.gz | tar -xvz --strip-components=1 -C shiroa-bin/
+          curl --fail --location --silent --show-error https://github.com/Myriad-Dreamin/shiroa/releases/download/v0.3.1-rc4/shiroa-x86_64-unknown-linux-gnu.tar.gz --output shiroa-bin/shiroa.tar.gz
+          tar -xzf shiroa-bin/shiroa.tar.gz --strip-components=1 -C shiroa-bin/
           chmod +x shiroa-bin/shiroa
 
-      - name: Setup patched Typst packages
-        run: |
-          mkdir -p ~/.cache/typst/packages/preview
-          cp -r packages/preview/dvdtyp ~/.cache/typst/packages/preview/
-          cp -r packages/preview/chem-par ~/.cache/typst/packages/preview/
-
       - name: Build Notes
-        run: ./shiroa-bin/shiroa build --path-to-root / --font-path assets/fonts
+        run: bash scripts/build.sh ./shiroa-bin/shiroa
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
