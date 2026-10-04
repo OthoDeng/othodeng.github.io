@@ -6,7 +6,9 @@
   doc,
 ) = {
   set page(margin: (x: 20pt, y: 16pt))
-  set text(font: "New Computer Modern", size: 10.5pt)
+  set text(font: "New Computer Modern", size: 11pt)
+  set par(leading: 0.65em, spacing: 1em)
+  set list(spacing: auto)
 
   set document(
     title: "CV_KaihuaiDeng_revised",
@@ -26,6 +28,7 @@
     text("·"),
     link("mailto:" + email),
   )
+
 
   set align(start)
   set line(stroke: 0.38pt + navy)
@@ -103,9 +106,9 @@
   location: "Sep 2023 - Jul 2027 (Expected)",
   entity: [B.S. in Atmospheric Science (Hydrometeorology)],
   description: [
-     _NUIST ranked \#1 in China and \#8 globally for Atmospheric Science (2025 ShanghaiRanking GRAS)._
+     _NUIST ranked \#1 in China and \#8 globally for Atmospheric Science (2026 ShanghaiRanking GRAS)._
     - Weighted average: 85.53/100 | GPA: 3.57/4.0 | Class rank: 6/51 *(top 12%)*
-    - Undergraduate researcher since 2023, Key Laboratory of Hydrometeorological Disaster Mechanism and Warning of Ministry of Water Resources.
+    - Key Laboratory of Hydrometeorological Disaster Mechanism and Warning of Ministry of Water Resources.
     - Relevant coursework: Probability & Statistics, Remote Sensing for Hydrometeorology, Hydrometeorological Modeling, Numerical Weather Prediction, Python Programming.
   ],
 )
@@ -113,15 +116,21 @@
 = Research Interests
 *Remote Sensing · Hydroclimate Extremes · Land–Atmosphere Interactions · Climate Risk Analysis*
 
-= Manuscripts & Presentations
+= Publications & Manuscripts
 
-[1] *Deng, K.*, Huang, Z.\* _Area Expansion Dominates Rising Global Three-Dimensional Terrestrial Water Storage Drought Severity._ Manuscript in preparation; presented in English at the 2026 National Outstanding Undergraduate Forum, Department of Earth System Science, Tsinghua University *(70 participants nationwide)*.
+[1] *Deng, K.*, Huang, Z.\* _Area Expansion Dominates Rising Global Three-Dimensional Terrestrial Water Storage Drought Severity._ Under review at _Geophysical Research Letters_.
 
-[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J. _Global Unequal Exposure to Intensifying Hydrological Droughts._ Manuscript under review at _Journal of Hydrology_; third revision submitted.
+[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J. _Global Unequal Exposure to Intensifying Hydrological Droughts._ Under review at _Journal of Hydrology_ (R4 revision submitted).
 
-[3] Wang, J.\*, *Deng, K.* (2024). _A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean._ _STECEP._ #link("https://doi.org/10.61173/xnag2k18", "https://doi.org/10.61173/xnag2k18")
+[3] Wang, J.\*, *Deng, K.* (2024). _A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean._ _Science and Technology of Engineering, Chemistry and Environmental Protection._ #link("https://doi.org/10.61173/xnag2k18", "https://doi.org/10.61173/xnag2k18")
 
 #text(size: 8.8pt, style: "italic")[\* Corresponding author.]
+
+= Conference Presentations
+
+*Deng, K.*, Huang, Z. (2026). _Area expansion dominates rising global three-dimensional terrestrial water storage drought severity._ AGU26, San Francisco, USA, 11 December 2026. Poster presentation; presenting author.
+
+*Global 3D TWS drought research.* English research presentation, National Outstanding Undergraduate Forum, Department of Earth System Science, Tsinghua University, June 2026. (70 participants nationwide)
 
 = Research Experience
 #cv_block(
@@ -130,38 +139,41 @@
   location: "Jul 2026 - Present",
   date: "Charlottetown, PE, Canada",
   description: [
-    - Awarded the fully funded 2026 Chinese Scholarship Council (CSC)-Canada Mitacs Globalink Research Internship *(≤260 awardees nationwide)*.
-    - Analyzing land-atmosphere coupling and GRACE-based groundwater trends for Prince Edward Island; comparing satellite terrestrial water storage estimates with local well observations to assess freshwater sustainability.
+    - Awarded the fully funded 2026 Chinese Scholarship Council (CSC)-Canada Mitacs Globalink Research Internship.
+    - Organized PEI Climate Hazard & Risk Information System shoreline and coastal protection data, prepared QGIS maps, and summarized shoreline change rates by coastal setting; co-authored an interim research report.
   ],
 )
 
 #cv_block(
-  name: "Global 3D Hydrological Drought Tracking & Mechanism Attribution",
-  entity: [Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
+  name: "Global 3D Terrestrial Water Storage Drought Tracking",
+  entity: [Research assistant | Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
   location: "",
   date: "Sep 2025 - Present",
   description: [
     - Developed a three-dimensional event-tracking framework for 23 years of GRACE/GRACE-FO terrestrial water storage observations, identifying 672 drought events and reconstructing their splitting-merging lineages.
-    - Designed an evaporative-contribution diagnostic to separate precipitation-deficit and evapotranspiration-related influences and quantify how spatial expansion contributes to increasing event severity.
+    - Quantified area expansion, mean intensity, and interaction contributions to rising monthly drought severity (77.7%, 19.2%, 3.2%); compared event-scale precipitation and actual evapotranspiration anomalies.
     - Principal Investigator of a Provincial Undergraduate Training Program on Innovation and Entrepreneurship.
   ],
 )
+// #pagebreak()
 
 #cv_block(
   name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
   entity: [Research assistant _|_ Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
   location: "",
-  date: "Jun 2025 - Aug 2026",
+  date: "Jun 2025 - Present",
   description: [
     - Applied EEMD to GRACE/GRACE-FO CSR RL06 mascon observations and derived event-based drought metrics; integrated GPW population grids to estimate a global trend of 38.76 million person-exposures yr⁻¹.
     - Decomposed the exposure increase into hydroclimatic conditions (73.2%), population growth (5.3%), and their interaction.
-    - Led study design, global data processing, visualization, manuscript drafting, and reviewer-response analysis under faculty supervision; third revision submitted to _Journal of Hydrology_.
+    - Led study design, global data processing, visualization, and manuscript drafting; R4 revision under review.
   ],
 )
 
+// #pagebreak()
+
 #cv_block(
   name: "Fluctuation Theorem & TCWV Asymmetry",
-  entity: [Advisor: #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST)],
+  entity: [Research assistant | Advisor: #link("https://faculty.nuist.edu.cn/yin/zh_CN/index/111951/list/index.htm")[Prof. Jun Yin] (NUIST)],
   location: "",
   date: "Sep 2024 - Sep 2025",
   description: [
@@ -211,7 +223,7 @@
   date: "Jul 2025 - Aug 2025",
   description: [
     - Supported operational monitoring and warning for Typhoon Danas (2025) and Typhoon Wipha (2025), tracking intensification and landfall trajectories and comparing ECMWF, CMA, NCEP, and TRAMS forecasts.
-    - Participated in calibration and telemetry checks for ometeorological field instruments.
+    - Participated in calibration and telemetry checks for meteorological field instruments.
   ],
 )
 
@@ -244,7 +256,7 @@
 )
 #award_block(
   name: "Scientific Computing",
-  entity: "Google Earth Engine, Linux/HPC, Git, WRF/WPS, MATLAB, ArcGIS",
+  entity: "Google Earth Engine, Linux/HPC, Git, WRF/WPS, MATLAB, ArcGIS, QGIS",
 )
 #award_block(
   name: "Machine Learning",

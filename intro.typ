@@ -47,8 +47,9 @@ My #link("https://raw.githubusercontent.com/OthoDeng/othodeng.github.io/main/cv/
 
 = Current Focus & Recent News
 
+- *Current:* My first-author manuscript on global three-dimensional terrestrial water storage droughts is under review at _Geophysical Research Letters_.
+- *Upcoming:* My abstract, _Area expansion dominates rising global three-dimensional terrestrial water storage drought severity_, has been accepted for poster presentation at AGU26. I am the presenting author, with the presentation scheduled for 11 December 2026 in San Francisco.
 - *September 2026:* Submitted the R4 revision of my first-author manuscript, _Global unequal exposure to intensifying hydrological droughts_, to _Journal of Hydrology_. The revised manuscript is under review.
-- *August 2026:* Submitted an abstract on my first-author global drought tracking research to #link("https://www.agu.org/annual-meeting")[AGU Fall Meeting 2026] (poster requested; acceptance pending).
 - *July 2026–present:* Research intern at the #link("https://climatesmartlab.ca/")[Climate Smart Lab], University of Prince Edward Island (UPEI), Canada, supported by the #link("https://www.mitacs.ca/our-programs/globalink-research-internship/")[CSC-Mitacs Globalink program]. I am studying shoreline change using historical coastal data, GIS maps, and grouped change rate summaries.
 - *June 2026:* Selected for the #link("https://www.dess.tsinghua.edu.cn/")[Tsinghua DESS Forum for Outstanding Undergraduates] (70 participants nationwide), where I presented my 3D drought research in English and discussed its design and extensions with #link("http://faculty.dess.tsinghua.edu.cn/luhui/")[Prof. Hui Lu].
 
@@ -63,7 +64,7 @@ My #link("https://raw.githubusercontent.com/OthoDeng/othodeng.github.io/main/cv/
 )[
   #set text(font: "Charter")
 
-  [1] *Deng, K.*, Huang, Z.\* (2026). _Increasing severity of global three-dimensional terrestrial water storage droughts revealed by satellite observations._ Manuscript in preparation.
+  [1] *Deng, K.*, Huang, Z.\* (2026). _Area expansion dominates rising global three-dimensional terrestrial water storage drought severity._ _Geophysical Research Letters_ (Under Review).
 
   #text(size: 0.85em, fill: luma(40%))[Develops an event-based framework for tracking global terrestrial water storage droughts and examining their severity evolution alongside precipitation and actual evapotranspiration anomalies.]
 
@@ -89,7 +90,7 @@ My #link("https://raw.githubusercontent.com/OthoDeng/othodeng.github.io/main/cv/
 
 *Approach.* I processed a 23-year GRACE/GRACE-FO terrestrial water storage record and used EEMD to separate long-term nonstationary components from event-scale variability. I then developed a three-dimensional connected-event tracking framework that preserves drought lineages through splitting and merging. I also compared event-scale precipitation and actual evapotranspiration anomalies to describe accompanying conditions.
 
-*Contribution and status.* The framework identifies 672 global drought events from August 2002 to July 2025 and produces event-level measures of duration, area, severity, propagation, and lineage. In the current manuscript, area expansion accounts for 77.7% of the increase in monthly drought severity; average intensity and their interaction account for 19.2% and 3.2%. These are results from a manuscript in preparation. The precipitation evapotranspiration comparison describes observed conditions and does not establish causal contributions to storage loss. I lead the associated Provincial Undergraduate Innovation Program (XJDC202610300604) and am preparing the first-author manuscript for submission.
+*Contribution and status.* The framework identifies 672 global drought events from August 2002 to July 2025 and produces event-level measures of duration, area, severity, propagation, and lineage. In the current manuscript, area expansion accounts for 77.7% of the increase in monthly drought severity; average intensity and their interaction account for 19.2% and 3.2%. The first-author manuscript is under review at _Geophysical Research Letters_. The precipitation evapotranspiration comparison describes observed conditions and does not establish causal contributions to storage loss. I lead the associated Provincial Undergraduate Innovation Program (XJDC202610300604). The associated abstract has been accepted for poster presentation at AGU26, where I am the presenting author.
 
 #research_block(
   name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
