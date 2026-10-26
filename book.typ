@@ -54,6 +54,9 @@
 
     - #chapter("2026spring/水文气象模型.typ")[Hydrological and Meteorological Models]
 
+    = 2027 Spring
+    - #chapter("2027spring/水文信息学.typ")[Hydrological Informatics]
+
 
   ],
 )
