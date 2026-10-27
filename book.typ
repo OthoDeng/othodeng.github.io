@@ -13,7 +13,20 @@
   summary: [ // this field works like summary.md of mdbook
     #prefix-chapter("intro.typ")[Introduction]
 
-    = Research
+    = Profile
+    - #chapter("news.typ")[News]
+    - #chapter("research.typ")[Research]
+      - #chapter("research/tws-drought.typ")[3D TWS Drought Tracking]
+      - #chapter("research/drought-exposure.typ")[Hydrological Drought Exposure]
+      - #chapter("research/shoreline-change.typ")[PEI Shoreline Change]
+      - #chapter("research/tcwv-asymmetry.typ")[Fluctuation Theorem and TCWV]
+      - #chapter("research/wrf-precipitation.typ")[WRF Precipitation Sensitivity]
+      - #chapter("research/yiluo-runoff.typ")[Yiluo Precipitation-Runoff Prediction]
+      - #chapter("research/southern-ocean.typ")[Southern Pacific SST Trends]
+    - #chapter("publications.typ")[Publications & Manuscripts]
+    - #chapter("about.typ")[About]
+
+    = Research Notes & Training
     - #chapter("2024spring/RemoteSensing.typ")[Remote Sensing Quick Notes]
     - #chapter("2024spring/SouthernOcean.typ")[A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean]
     - #chapter("2025spring/GCA2.typ")[The 2nd GEOS-Chem Asia Meeting (GCA2)]
