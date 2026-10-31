@@ -7,11 +7,12 @@
 ) = {
   set page(margin: (x: 20pt, y: 16pt))
   set text(font: "New Computer Modern", size: 11pt)
-  set par(leading: 0.65em, spacing: 1em)
-  set list(spacing: auto)
+  set par(leading: 0.6em, spacing: 0.7em)
+  set list(spacing: 3.5pt)
+  set text(hyphenate: false)
 
   set document(
-    title: "CV_KaihuaiDeng_revised",
+    title: "CV_KaihuaiDeng",
     author: name,
   )
 
@@ -69,7 +70,7 @@
     )
   }
   v(1pt)
-  text(size: 10pt, fill: luma(12%), description, spacing: 2.5pt)
+  text(size: 10.5pt, fill: luma(12%), description, spacing: 3pt)
 }
 
 #let award_block(
@@ -108,7 +109,6 @@
   description: [
      _NUIST ranked \#1 in China and \#8 globally for Atmospheric Science (2026 ShanghaiRanking GRAS)._
     - Weighted average: 85.53/100 | GPA: 3.57/4.0 | Class rank: 6/51 *(top 12%)*
-    - Key Laboratory of Hydrometeorological Disaster Mechanism and Warning of Ministry of Water Resources.
     - Relevant coursework: Probability & Statistics, Remote Sensing for Hydrometeorology, Hydrometeorological Modeling, Numerical Weather Prediction, Python Programming.
   ],
 )
@@ -120,7 +120,7 @@
 
 [1] *Deng, K.*, Huang, Z.\* _Area Expansion Dominates Rising Global Three-Dimensional Terrestrial Water Storage Drought Severity._ Under review at _Geophysical Research Letters_.
 
-[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J. _Global Unequal Exposure to Intensifying Hydrological Droughts._ Under review at _Journal of Hydrology_ (R4 revision submitted).
+[2] *Deng, K.*, Huang, Z.\*, Li, H., Wu, J. _Global Unequal Exposure to Intensifying Hydrological Droughts._ R4 revision submitted to _Journal of Hydrology_.
 
 [3] Wang, J.\*, *Deng, K.* (2024). _A Model that Explains the Contrasting SST Trends in the Southern Pacific Ocean._ _Science and Technology of Engineering, Chemistry and Environmental Protection._ #link("https://doi.org/10.61173/xnag2k18", "https://doi.org/10.61173/xnag2k18")
 
@@ -128,7 +128,7 @@
 
 = Conference Presentations
 
-*Deng, K.*, Huang, Z. (2026). _Area expansion dominates rising global three-dimensional terrestrial water storage drought severity._ AGU26, San Francisco, USA, 11 December 2026. Poster presentation; presenting author.
+*Deng, K.*, Huang, Z. (2026). _Area expansion dominates rising global three-dimensional terrestrial water storage drought severity._ AGU26, San Francisco, USA, 11 December 2026. Accepted poster; presenting author.
 
 *Global 3D TWS drought research.* English research presentation, National Outstanding Undergraduate Forum, Department of Earth System Science, Tsinghua University, June 2026. (70 participants nationwide)
 
@@ -136,11 +136,12 @@
 #cv_block(
   name: "Mitacs Globalink Research Internship",
   entity: [Research intern _|_ Advisor: #link("https://climatesmartlab.ca/team/xander-wang/")[Prof. Xander Wang] (University of Prince Edward Island)],
-  location: "Jul 2026 - Present",
+  location: "Jul 2026 - Oct 2026",
   date: "Charlottetown, PE, Canada",
   description: [
-    - Awarded the fully funded 2026 Chinese Scholarship Council (CSC)-Canada Mitacs Globalink Research Internship.
-    - Organized PEI Climate Hazard & Risk Information System shoreline and coastal protection data, prepared QGIS maps, and summarized shoreline change rates by coastal setting; co-authored an interim research report.
+    - Integrated shoreline epochs (1968–2022) and coastal protection records from the PEI Climate Hazard & Risk Information System in QGIS; calculated change statistics weighted by  length and data coverage by coastal setting.
+    - Compared historical and recent erosion hotspots using 1,052 fixed transects in 51 spatial groups at Naufrage; found that three of 11 recent hotspots overlapped historical hotspots.
+    - Presented findings in lab meetings and coauthored an interim research report.
   ],
 )
 
@@ -150,9 +151,10 @@
   location: "",
   date: "Sep 2025 - Present",
   description: [
-    - Developed a three-dimensional event-tracking framework for 23 years of GRACE/GRACE-FO terrestrial water storage observations, identifying 672 drought events and reconstructing their splitting-merging lineages.
-    - Quantified area expansion, mean intensity, and interaction contributions to rising monthly drought severity (77.7%, 19.2%, 3.2%); compared event-scale precipitation and actual evapotranspiration anomalies.
-    - Principal Investigator of a Provincial Undergraduate Training Program on Innovation and Entrepreneurship.
+    #text(size: 10pt, style: "italic")[Key Laboratory of Hydrometeorological Disaster Mechanism and Warning]
+    - Built a global drought tracking algorithm for GRACE/GRACE-FO observations (2002–2025) using EEMD, GLDAS-2.2 CLSM gap filling, eight-neighbor spatial connectivity, and 16% directional overlap between months.
+    - Reconstructed 672 drought events, including splits and mergers; tested overlap thresholds of 10–22% and compared event precipitation and actual evapotranspiration anomalies from ERA5-Land.
+    - Produced an event catalog and NetCDF event labels and quantified first-order area and intensity effects on severity; led algorithm implementation, sensitivity analysis, visualization, and manuscript preparation.
   ],
 )
 // #pagebreak()
@@ -161,15 +163,15 @@
   name: "Global Unequal Exposure to Intensifying Hydrological Droughts",
   entity: [Research assistant _|_ Advisor: #link("https://faculty.nuist.edu.cn/huangzhongwei/zh_CN/index.htm")[Prof. Zhongwei Huang] (NUIST)],
   location: "",
-  date: "Jun 2025 - Present",
+  date: "Jun 2025 - Oct 2026",
   description: [
-    - Applied EEMD to GRACE/GRACE-FO CSR RL06 mascon observations and derived event-based drought metrics; integrated GPW population grids to estimate a global trend of 38.76 million person-exposures yr⁻¹.
-    - Decomposed the exposure increase into hydroclimatic conditions (73.2%), population growth (5.3%), and their interaction.
-    - Led study design, global data processing, visualization, and manuscript drafting; R4 revision under review.
+    #text(size: 10pt, style: "italic")[Key Laboratory of Hydrometeorological Disaster Mechanism and Warning]
+    - Applied EEMD to GRACE/GRACE-FO observations, calculated drought frequency, duration, and intensity, and combined drought indicators with GPW population grids; assessed trends using Theil–Sen estimation.
+    - Estimated that the population exposed to drought increased by 38.76 million people per year; separated hydroclimatic (73.2%), population (5.3%), and interaction (21.5%) contributions.
+    - Led study design, global data processing, visualization, and manuscript drafting; contributed to revision analyses examining mission gaps and population assumptions.
   ],
 )
 
-// #pagebreak()
 
 #cv_block(
   name: "Fluctuation Theorem & TCWV Asymmetry",
@@ -177,19 +179,22 @@
   location: "",
   date: "Sep 2024 - Sep 2025",
   description: [
-    - Extended a nonequilibrium fluctuation theorem (Yin et al., 2024, _J. Climate_) from surface temperature to TCWV using ERA5; quantified PDF asymmetry $A_("asym")$ across $tau = 1–20$ yr smoothing timescales.
-    - Validated SST–TCWV Clausius–Clapeyron scaling ($R^2 = 0.95$, approximately 7%/K) and tested the transferability of the tail-rescaling framework; produced a manuscript draft; discussed with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino).
+    #text(size: 10pt, style: "italic")[Key Laboratory of Hydrometeorological Disaster Mechanism and Warning]
+    - Investigated moisture fluctuations and their relationship with precipitation using monthly ERA5 data (1940–2024); constructed probability density functions and calculated asymmetry $A_("asym")$ using moving averages over different years.
+    - Estimated an SST–TCWV regression slope of 0.0645 $"K"^(-1)$ ($R^2 = 0.95$); compared positive and negative distribution tails and conditional relationships among moisture, vertical motion, and precipitation.
+    - Independently developed the analyses, figures, and manuscript draft; discussed the framework with #link("https://www.polito.it/en/staff?p=lamberto.rondoni")[Prof. Lamberto Rondoni] (Politecnico di Torino).
   ],
 )
 
 #cv_block(
-  name: "WRF-based Precipitation Sensitivity over Jing-Jin-Ji",
+  name: "WRF Precipitation Sensitivity over Jing-Jin-Ji",
   entity: [Advisor: #link("https://faculty.nuist.edu.cn/wangmengya/zh_CN/index/142611/list/index.htm")[Dr. Mengya Wang] (NUIST)],
   location: "",
   date: "Mar 2025 - Jul 2025",
   description: [
-    - Configured WRF/WPS with three nested domains on Linux HPC; conducted 16 experiments perturbing soil moisture ($plus.minus 10%$ to $plus.minus 50%$) and urban LULC to represent rapid-urbanization scenarios.
-    - Evaluated precipitation responses using spatial correlation, RMSE, and threat scores; identified the lowest-bias cumulus–microphysics configuration among the tested experiments.
+    - Configured WRF/WPS on Linux HPC for 5–13 July 2021 with 27/9/3 km nested domains; used WSM6, YSU, and KF as the baseline and disabled cumulus parameterization in the 3 km domain.
+    - Compared precipitation responses across physics configurations using spatial correlation, RMSE, and threat scores; assessed differences across rainfall processes and intensity classes.
+    - Independently prepared model inputs, configured namelist files, managed HPC jobs, and completed the experiment report; used ndown for nested simulations.
   ],
 )
 
@@ -199,8 +204,9 @@
   location: "",
   date: "Jun 2024 - Mar 2025",
   description: [
-    - Applied EOF to monthly precipitation interannual increments, extracting three PCs explaining >90% of variance; screened hydroclimatic predictors using correlation analysis and stepwise regression.
-    - Built a BiLSTM + interannual-increment hybrid model, improving TCC by 16% and reducing RMSE by 20% relative to statistical downscaling; evaluated CSSPv2 monthly streamflow forecasts.
+    - Applied EOF to CN05.1 monthly precipitation interannual increments to characterize variability between years; screened SST and soil moisture predictors using correlation analysis and stepwise regression.
+    - Contributed to BiLSTM precipitation prediction and CSSPv2 streamflow experiments driven by precipitation forecasts; evaluated monthly streamflow forecasts and supported model execution on HPC.
+    - Team results: three PCs explained >90% of variance; precipitation TCC improved by 16% and RMSE decreased by 20% relative to statistical downscaling; monthly streamflow NSE reached 0.65.
   ],
 )
 
@@ -210,8 +216,9 @@
   location: "",
   date: "Mar 2024 - Sep 2024",
   description: [
-    - Analyzed 29 years of multi-source satellite and reanalysis data (Copernicus SST, DUACS SSH, CERES, NCEP, NSIDC SIC) across the Southern Pacific (80°W–180°, 70°S–30°S).
-    - Derived Ekman transport ($U_E, V_E, W_E$) from wind stress to attribute the SST dipole and diagnosed a sea-ice radiative positive-feedback cycle; published as co-author in _STECEP_ (2024).
+    - Analyzed Copernicus SST, DUACS sea surface height, CERES radiation, NCEP winds, and NSIDC sea ice across the Southern Pacific (1993–2021); calculated spatial trends and statistical significance.
+    - Derived Ekman transport and pumping from wind stress and compared sea ice and radiative changes to develop a conceptual explanation of contrasting SST trends.
+    - Collaborated on literature review, data analysis, conceptual modeling, and manuscript writing; second author of the resulting publication.
   ],
 )
 
@@ -241,12 +248,12 @@
 #award_block(
   name: "Second Class Academic Scholarship",
   entity: "NUIST (top 20%)",
-  date: "Nov 2024 & Nov 2025",
+  date: "Nov 2024, Nov 2025, Nov 2026",
 )
 #award_block(
   name: "Merit Student",
   entity: "NUIST (top 15%)",
-  date: "Dec 2024",
+  date: "Dec 2024, Dec 2025, Dec 2026",
 )
 
 = Additional Information
@@ -259,7 +266,7 @@
   entity: "Google Earth Engine, Linux/HPC, Git, WRF/WPS, MATLAB, ArcGIS, QGIS",
 )
 #award_block(
-  name: "Machine Learning",
+  name: "Statistical & Machine Learning Methods",
   entity: "TensorFlow, PyTorch, BiLSTM, EOF, EEMD",
 )
 #award_block(
