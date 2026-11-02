@@ -1,4 +1,5 @@
 #import "../book.typ": book-page
+#import "figures/hydro-ml.typ": pca-figure, activation-figure
 #show: book-page.with(title: "水文信息学")
 #set text(lang: "zh")
 #show table: it => block(breakable: false, it)
@@ -87,6 +88,39 @@ PCA 将相关特征转换为相互正交的线性组合，按解释方差从大�
 $ (sum_(j=1)^q lambda_j)/(sum_(j=1)^p lambda_j). $
 
 PCA 保留的是方差较大的变化，未必保留对预测目标最有用的信息。它可以压缩相关气象变量，但仍需结合载荷和领域知识解释主成分。
+
+#pca-figure()
+
+=== PCA 与后续预测
+
+主成分是原始特征的线性组合，在用于计算 PCA 的样本中互不相关；互不相关不代表统计独立。舍弃部分主成分可能减少噪声，也可能丢失有效信息，效果需要通过验证评价。
+
+PCA 后可以连接 Random Forest（RF）或 K-nearest Neighbors（KNN）。KNN 依赖距离，通常需要标准化；RF 中的决策树通常无需标准化，但前面的 PCA 仍受特征尺度影响。PCA 是否提高预测能力，需要与使用原始特征的模型比较。
+
+以下以 Iris 数据演示 StandardScaler、PCA 与 KNN 的连接。Pipeline 将标准化和 PCA 的拟合限制在训练资料内。
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.decomposition import PCA
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+
+X, y = load_iris(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+model = make_pipeline(
+    StandardScaler(),
+    PCA(n_components=2),
+    KNeighborsClassifier(n_neighbors=5),
+)
+model.fit(X_train, y_train)
+print(model.score(X_test, y_test))
+```
+
+此例固定超参数，测试集用于最终评价；若选择主成分数量或邻居数量，应在训练资料内增加验证过程。水文时间序列的数据划分需遵循预报任务的时间关系。
 
 = 集合学习
 
@@ -241,3 +275,93 @@ $ V_(t)(s)=max_(a in cal(A)_(t)(s))
 $cal(A)_(t)(s)$ 为可行行动集合，$V_(t)(s)$ 为剩余阶段的最大累计收益，$G(s)$ 为终期状态的价值。由终期条件 $V_(T+1)(s)=G(s)$ 按时间逆序递推；最优策略到达的中间状态，其后续决策构成相应子问题的最优策略。
 
 随机来水需要在转移中加入随机变量，并按目标使用条件期望等形式。精确求解可得到所建模型的全局最优策略；离散化精度影响结果，状态维度增加会引发维度灾难。
+
+= 深度学习
+
+== 神经网络与学习目标
+
+神经网络通过多层变换，将输入映射为预测值。训练时，用损失函数衡量预测值与目标值的差异，通过优化算法调整权重和偏置，使训练损失减小。
+
+$ hat(y)=f_(theta)(bold(x)), quad
+  min_(theta) 1/N sum_(i=1)^N L(y_i,f_(theta)(bold(x)_i)). $
+
+$theta$ 表示全部待训练参数，$L$ 为损失函数。回归常用均方误差，分类常用交叉熵；泛化能力仍需通过独立资料评价。
+
+== 感知机（Perceptron）
+
+感知机是采用阶跃函数的二分类线性模型，通过输入的加权和与阈值决定类别：
+
+$ z=bold(w)^T bold(x)+b, quad hat(y)=cases(1 & z>=0, 0 & z<0). $
+
+单层感知机的决策边界为线性边界，在线性可分的训练资料上，感知机学习算法可收敛。
+
+== 人工神经网络（ANN）
+
+Artificial Neural Network（ANN）涵盖多种网络结构。常见的多层感知机（MLP）包含输入层、隐藏层和输出层，可用于回归、二分类或多分类。
+
+- *输入层*：接收降水、气温、前期径流等输入特征。
+- *隐藏层*：进行加权求和与非线性变换，学习特征表示。
+- *输出层*：根据任务输出连续数值、类别概率或其他目标量。
+
+第 $l$ 层的计算可表示为：
+
+$ bold(z)^((l))=bold(W)^((l)) bold(a)^((l-1))+bold(b)^((l)), quad
+  bold(a)^((l))=phi(bold(z)^((l))). $
+
+$bold(a)^((0))=bold(x)$，$phi$ 为激活函数。连续多层线性变换仍可合成为一次线性变换，因此隐藏层通常使用非线性激活函数。
+
+ANN 能够从资料中学习复杂关系和特征表示，适用于多种任务；其效果取决于样本数量、资料质量和网络设计。主要限制包括解释模型较困难、训练计算成本较高，以及可能出现过拟合。
+
+== 激活函数（Activation Function）
+
+#table(
+  columns: (0.8fr, 1.5fr, 2fr),
+  inset: 5pt,
+  table.header([*函数*], [*表达式与范围*], [*特点与用途*]),
+  [ReLU], [$phi(z)=max(0,z)$，范围 $[0,infinity)$。], [正值部分保持线性，负值部分输出零；常用于隐藏层。长期处于负值区间的单元可能停止更新。],
+  [Sigmoid], [$phi(z)=1/(1+e^(-z))$，范围 $(0,1)$。], [常用于二分类输出；输入绝对值较大时梯度接近零。],
+  [tanh], [$phi(z)=(e^z-e^(-z))/(e^z+e^(-z))$，范围 $(-1,1)$。], [输出以零为中心；输入绝对值较大时也会出现梯度接近零的情况。],
+)
+
+例如，输入 $z=0$ 时，ReLU 和 tanh 输出零，Sigmoid 输出 $0.5$。多分类常用 Softmax 将多个输出转换为和为一的类别概率；回归输出层常采用线性输出。
+
+#activation-figure()
+
+== 前向传播、反向传播与参数更新
+
+1. *前向传播（Forward Propagation）*：根据当前参数逐层计算预测值，并计算损失。
+2. *反向传播（Backpropagation）*：利用链式法则，从输出向输入方向计算损失对各层参数的梯度。
+3. *参数更新*：优化器根据梯度调整参数，例如梯度下降更新为 $theta <- theta-eta nabla_theta L$，其中 $eta$ 为学习率。
+
+训练对多个 batch 重复这些步骤，完整遍历一次训练集称为一个 epoch。验证资料用于选择训练次数及其他超参数，early stopping 可根据验证损失终止训练。
+
+== 网络结构、学习方式与任务
+
+深度学习使用多层神经网络学习特征表示。网络结构、学习方式和任务类型可以分别描述同一个模型：
+
+- *网络结构*：如全连接网络、CNN、RNN 和 LSTM。
+- *学习方式*：如监督学习、无监督学习和强化学习；强化学习通过环境反馈与奖励学习行动策略。
+- *任务类型*：如分类、回归和序列预测。
+- *资料形式*：如表格、图像、空间网格和时间序列。
+
+*端到端学习（End-to-end Learning）*通过共同的训练目标学习从输入到目标输出的映射。*Sequence-to-Sequence（Seq2Seq）*将输入序列映射为输出序列，例如根据过去一段时间的降水与径流，预测未来多个时段的径流。
+
+== 卷积神经网络（CNN）
+
+*卷积层*使用滤波器在局部区域进行加权求和，并通过参数共享，在不同位置提取同类特征。与连接全部输入的全连接层相比，这种结构通常可以减少参数数量。二维卷积适用于气象场等网格资料，一维卷积可用于时间序列。
+
+*池化层（Pooling）*通过局部最大值或平均值等操作压缩特征图的空间或时间尺寸，减少后续计算量，也可能丢失局部信息。常见形式为 Max Pooling 和 Average Pooling。
+
+CNN 可以学习局部结构和有助于预测的特征；降噪效果取决于训练目标与资料，卷积和池化本身无法保证去除噪声。
+
+== 长短期记忆网络（LSTM）
+
+循环神经网络（RNN）通过隐藏状态传递前面时刻的信息，可用于处理序列。普通 RNN 在较长序列的训练中可能出现梯度消失或梯度爆炸，影响长期依赖关系的学习。
+
+Long Short-Term Memory（LSTM）通过记忆单元和门控机制控制信息的保留、写入与输出：
+
+- *遗忘门*：控制上一时刻记忆的保留程度。
+- *输入门*：控制当前候选信息写入记忆的程度。
+- *输出门*：控制记忆对当前隐藏状态的影响。
+
+LSTM 有助于缓解长期依赖的学习困难，可用于降水—径流等时间序列建模。输入时间窗、隐藏单元数量和训练设置仍需结合验证结果确定。
